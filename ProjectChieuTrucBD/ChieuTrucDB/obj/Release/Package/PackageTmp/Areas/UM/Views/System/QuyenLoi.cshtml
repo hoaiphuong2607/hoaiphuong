@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Ưu điểm doanh nghiệp";
+    Layout = "~/Areas/UM/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .img-wrap {
+    position: relative;
+}
+.img-wrap .close {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    z-index: 100;
+}
+</style>
+@section title_header{
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                </i>
+            </div>
+            <div>
+                @ViewBag.Title
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewBag.Title</h5>
+                <div class="table-responsive">
+                    <table id="tableData" class="mb-0 table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Thông tin</th>
+                                <th>Icon</th>
+                                <th>Ngày cập nhật</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section _script
+    {
+    <script src="~/Assets/Admin/plugin/ckfinder/ckfinder.js"></script>
+    <script src="~/Assets/Admin/plugin/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/adminScript.js"></script>
+    <script>
+        $(document).ready(function () {
+            GetAllQuyenLoi();
+
+            $('#addModal #BanDo').on('change', function () {
+                if ($('#addModal #BanDo').val() != '') {
+                    $('#addModal #showMap').attr('src', $('#addModal #BanDo').val());
+                }
+            });
+
+            $('#editModal #BanDo').on('change', function () {
+                if ($('#editModal #BanDo').val() != '') {
+                    $('#editModal #showMap').attr('src', $('#editModal #BanDo').val());
+                }
+            });
+        });
+    </script>
+}
+@section _modal
+{
+    <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-2" role="dialog" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chỉnh sửa ưu điểm doanh nghiệp</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="IdQuyenLoi" />
+                    <div class="form-group col-sm-12">
+                        <label class="">Ưu điểm *</label>
+                        <input type="text" id="TieuDe" class="form-control col-sm-12" />
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="">Biểu tượng *</label>
+                        <input type="text" id="ChiTiet" class="form-control col-sm-12" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="btn btn-primary" onclick="UpdateQuyenLoi()">Thêm mới</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,36 @@
+﻿<div class="mainmenu" style="color:chartreuse">
+            <ul id="nav" class="menu">
+                <li class="first ">
+                    <a href="~/">Trang Chủ</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Sản phẩm</a>
+                    <ul><li>@Html.Action("CourseCategories", "Home")</li></ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Về BDMAT</a>
+                    <ul>
+                        <li><a href="/Home/About">Cây tre, cây trúc</a></li>
+                        <li><a href="/ho-tro/tai-lieu">Doanh nghiệp</a></li>
+                        <li><a href="/lien-he/van-phong-va-tru-so.html">Liên Hệ</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/distributor/index">Hệ thống phân phối</a>
+                    <ul>
+                        <li><a href="/tap-doan/lich-su-hinh-thanh.html">Siêu thị</a></li>
+                        <li><a href="/ho-tro/tai-lieu">Cửa hàng</a></li>
+                        <li><a href="/lien-he/van-phong-va-tru-so.html">Các trang mạng online</a></li>
+                    </ul>
+                </li>
+                <li class="last ">
+                    <a href="/dich-vu-va-ho-tro.html">Dịch vụ và hỗ trợ</a>
+                    <ul>
+                        <li><a href="/Home/HuongDanSuDung">Hướng dẫn sử dụng</a></li>
+                        <li><a href="/Home/TTBaoHanh">Trung tâm bảo hành</a></li>
+                        <li><a href="/Home/DkBaoHanh">Điều kiện bảo hành</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </div>

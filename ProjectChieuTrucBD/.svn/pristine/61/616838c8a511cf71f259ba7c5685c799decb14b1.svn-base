@@ -1,0 +1,35 @@
+﻿using System.Web.Mvc;
+using ChieuTrucDB.DAL;
+using ChieuTrucDB.ViewModel;
+
+namespace ChieuTrucDB.Controllers
+{
+    public class SanPhamController : Controller
+    {
+        public ActionResult List(string metaTitle)
+        {
+            var data = new ProductDAL().GetAllSanPhamByMetaTitle("");
+            if (!string.IsNullOrEmpty(metaTitle))
+            {
+                data = new ProductDAL().GetAllSanPhamByMetaTitle(metaTitle);
+                if (data == null)
+                    return HttpNotFound();
+            }
+            ViewBag.Title = string.IsNullOrEmpty(metaTitle) ? "Danh mục sản phẩm" : new ProductCategoryDAL().GetOneByMetaTitle(metaTitle).TenDanhMucSanPham;
+            return View(data);
+        }
+        public ActionResult Detail(string metaTitle, long? idSanPham)
+        {
+            ProductDetail vm = new ProductDetail();
+            if (string.IsNullOrEmpty(metaTitle) || idSanPham == null)
+            {
+                return HttpNotFound();
+            }
+            var data = new ProductDAL().GetDetailOfProduct(metaTitle, idSanPham);
+            if (data != null)
+                return View(data);
+            else
+                return HttpNotFound();
+        }
+    }
+}

@@ -1,0 +1,90 @@
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+C:\Users\Phan Tai\Desktop\NguyenHuuvinh\publish\ChieuTrucBinhDuong\ChieuTrucBD\DataModel\obj\Debug\DataModel.pdb
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.pdb
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+F:\04_PNS\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Debug\DataModel.pdb
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\DataModel.dll.config
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\DataModel.dll
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\DataModel.pdb
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\EntityFramework.dll
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\EntityFramework.xml
+D:\ProjectCTBinhDuong\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\ProjectCTBinhDuong\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+D:\ProjectCTBinhDuong\DataModel\obj\Debug\DataModel.csproj.CoreCompileInputs.cache
+D:\ProjectCTBinhDuong\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+D:\ProjectCTBinhDuong\DataModel\obj\Debug\DataModel.dll
+D:\ProjectCTBinhDuong\DataModel\obj\Debug\DataModel.pdb
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\DataModel.dll.config
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\DataModel.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\DataModel.pdb
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\EntityFramework.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\EntityFramework.xml
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Debug\DataModel.dll
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Debug\DataModel.pdb
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.pdb
+F:\projectChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+F:\projectChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+F:\projectChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+F:\projectChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+F:\projectChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\projectChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+F:\projectChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\projectChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+F:\projectChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CoreCompileInputs.cache
+F:\projectChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+F:\projectChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+F:\projectChieuTrucBD\DataModel\obj\Debug\DataModel.pdb
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll.config
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\DataModel.pdb
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.xml
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Debug\EntityFramework.SqlServer.xml
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.csprojAssemblyReference.cache
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.csproj.CopyComplete
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Debug\DataModel.pdb

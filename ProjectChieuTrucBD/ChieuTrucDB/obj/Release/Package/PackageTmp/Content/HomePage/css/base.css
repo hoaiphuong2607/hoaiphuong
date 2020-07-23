@@ -1,0 +1,174 @@
+﻿
+
+#contentArea {
+    height: 100%;
+}
+
+#jsMainBlock {
+    width: 950px;
+    height: 496px;
+    padding-top: 7px;
+    position: relative;
+}
+
+#jsMainFrame {
+    position: absolute;
+    z-index: 1;
+}
+
+#jsMainBg2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+
+    #jsMainBg2 img {
+        width: 1250px;
+        height: 500px;
+    }
+
+.bgimgsBox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 7;
+}
+
+.nextBg {
+    z-index: 8;
+}
+
+.oldBg {
+    z-index: 7;
+}
+
+#jsMainArwL {
+    position: absolute;
+    top: 130px;
+    left: 10px;
+    z-index: 21;
+    visibility: hidden;
+}
+
+#jsMainArwR {
+    position: absolute;
+    top: 130px;
+    left: 920px;
+    z-index: 22;
+    visibility: hidden;
+}
+
+#jsMainCp {
+    width: 950px;
+    height: 211px;
+    position: absolute;
+    top: 289px;
+    left: 0px;
+    overflow: hidden;
+    z-index: 100000;
+    background: url(blank.gif);
+}
+
+#cpArea {
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+#jsMainBtSet {
+    width: 970px;
+    text-align: center;
+    z-index: 11;
+    left: 0px;
+    position: absolute;
+}
+
+.jsMainbtCls {
+    width: 100%;
+    top: 8px;
+    left: 0px;
+    position: absolute;
+}
+
+.jsMainBtUi {
+    width: 928px;
+    height: 215px;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    left: 2px;
+}
+
+.btnImgae {
+    background: url(../images/bg-icon-intro.png) no-repeat;
+    width: 172px;
+    height: 159px;
+    float: left;
+    position: absolute;
+    list-style: none;
+}
+
+    .btnImgae img.icon_category {
+        position: absolute;
+        left: 8px;
+        top: -27px;
+    }
+
+a.biggerlink:link {
+    color: #4e4e4e;
+    text-decoration: none;
+}
+
+a.biggerlink:visited {
+    color: #4e4e4e;
+    text-decoration: none;
+}
+
+a.biggerlink:hover {
+    color: #4e4e4e;
+    text-decoration: none;
+}
+
+a.biggerlink:active {
+    color: #4e4e4e;
+    text-decoration: none;
+}
+
+#JsMainRmp {
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    z-index: 40;
+}
+
+    #JsMainRmp li {
+        float: left;
+    }
+
+.locBlockli1 {
+    width: 32px;
+}
+
+.locBlockli2 {
+    width: 14px;
+}
+
+.title_jsMainLi {
+    height: 26px;
+    margin: 15px 0 0;
+    width: 172px;
+}
+
+#title_jsMainLi_right {
+    float: right;
+    font-size: 12px;
+    margin: -8px 4px 0 0;
+    width: 120px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.content_jsMainLi {
+    margin: 10px 0 0 0;
+    width: 172px;
+}

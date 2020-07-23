@@ -1,0 +1,9 @@
+﻿@model IEnumerable<ChieuTrucDB.Models.Category>
+
+<li>@foreach (var item in Model)
+    {
+        <a href="@Url.Action("TheLoaiSanPham", "Home", new {id=item.id})">@item.name</a>
+    }
+</li>
+
+

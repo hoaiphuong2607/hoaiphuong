@@ -1,0 +1,132 @@
+﻿@{
+    var ht = (List<ChieuTrucDB.Models.DanhMucHeThong>)ViewBag.DanhMucHT;
+    var sp = (List<ChieuTrucDB.Models.DMSanPham>)ViewBag.DanhMucSP;
+    var contact = (ChieuTrucDB.Models.ContactInfo)ViewBag.Info;
+    var uu = (List<ChieuTrucDB.Models.QuyenLoi>)ViewBag.QuyenLoi;
+}
+<footer>
+    <div class="container">
+        @if (uu.Count > 0)
+        {
+            <div class="w3l-grids-footer">
+                @foreach (var i in uu)
+                {
+                    <div class="col-xs-4 offer-footer">
+                        <div class="col-xs-4 icon-fot">
+                            <span class="@i.ChiTiet" aria-hidden="true"></span>
+                        </div>
+                        <div class="col-xs-8 text-form-footer">
+                            <h3>@i.TieuDe</h3>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                }
+                <div class="clearfix"></div>
+            </div>
+        }
+        <!-- //footer second section -->
+        <!-- footer third section -->
+        <div class="footer-info w3-agileits-info">
+            <!-- footer categories -->
+            <div class="col-sm-5 address-right">
+                <div class="col-xs-6 footer-grids">
+                    <h3>SẢN PHẨM</h3>
+                    <ul>
+                        @foreach (var item in sp)
+                        {
+                            <li>
+                                <a href="/danh-muc/@item.MetaTitle">@item.TenDanhMucSanPham</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="col-xs-6 footer-grids">
+                    <h3>HỆ THỐNG</h3>
+                    <ul>
+                        @foreach (var item in ht)
+                        {
+                            <li>
+                                <a href="/he-thong/@item.MaDanhMucHeThong.ToLower()">@item.TenDanhMucHeThong</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- //footer categories -->
+            <!-- quick links -->
+            <div class="col-sm-5 address-right">
+                <div class="col-xs-6 footer-grids">
+                    <h3>KHÁCH HÀNG</h3>
+                    <ul>
+                        <li>
+                            <a href="/trang-chu">Trang Chủ</a>
+                        </li>
+                        <li>
+                            <a href="/ve-chung-toi">Về Chúng Tôi</a>
+                        </li>
+                        <li>
+                            <a href="/lien-he">Liên Hệ</a>
+                        </li>
+                        <li>
+                            <a href="/huong-dan-su-dung">Hướng Dẫn Sử Dụng</a>
+                        </li>
+                        <li>
+                            <a href="/chinh-sach-bao-hanh">Chính Sách Bảo Hành</a>
+                        </li>
+                        <li>
+                            <a href="/trung-tam-bao-hanh">Trung Tâm Bảo Hành</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 footer-grids">
+                    <h3>VĂN PHÒNG</h3>
+                    <ul>
+                        <li>
+                            <i class="fa fa-map-marker"></i> @Html.Raw(contact.DiaChi)
+                        </li>
+                        <li>
+                            <i class="fa fa-mobile"></i> @Html.Raw(contact.DienThoai)
+                        </li>
+                        @*<li>
+                                <i class="fa fa-phone"></i> +222 11 4444
+                            </li>*@
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <a href="mailto:@(contact.Email)"> @Html.Raw(contact.Email)</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- //quick links -->
+            <!-- social icons -->
+            <div class="col-sm-2 footer-grids  w3l-socialmk">
+                <div class="col-xs-12 footer-grids">
+                    <h3>FOLLOW US</h3>
+                    <div class="social">
+                        <ul>
+                            <li>
+                                <a class="icon fb" href="#">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="icon tw" href="#">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="icon gp" href="#">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- //social icons -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- //footer third section -->
+    </div>
+</footer>

@@ -1,0 +1,8 @@
+﻿
+@{
+    ViewBag.Title = "Admin đăng nhập thành công";
+    Layout = null;
+}
+<title>Login success</title>
+<h2>Tên đăng nhập: @Session[ChieuTrucDB.COMMON.CommonConstants.USER_SESSION]</h2>
+

@@ -1,0 +1,85 @@
+﻿
+
+@{
+    ViewBag.Title = "TimKiem";
+
+}
+
+@using ChieuTrucDB.Models;
+@{
+
+    string tk = ViewBag.ThongBao;
+    DatabaseContext db = new DatabaseContext();
+    List<SanPham> tkk = db.SanPhams.Where(x => x.TenSanPham.Contains(tk)).ToList();
+}
+<style>
+    .sanpham {
+        height: auto;
+        width: 100%;
+       
+    }
+
+        .sanpham ul {
+            list-style: none;
+        }
+
+            .sanpham ul li {
+                width: 200px;
+                height: 250px;
+                border: 1px solid black;
+                border-radius: 10px;
+                text-align: center;
+                float: left;
+                margin-left: 40px;
+                margin-top: 5px;
+                margin-bottom: 10px;
+                transition: all 1s;
+                -moz-transition: all 1s;
+                -webkit-transition: all 1s;
+            }
+
+                .sanpham ul li:hover {
+                    transform: scale(1.2);
+                }
+
+                .sanpham ul li a {
+                    text-decoration: none;
+                }
+
+                    .sanpham ul li a img {
+                        width: 190px;
+                        height: 180px;
+                    }
+</style>
+
+ 
+            <br />
+            <hr style="width:40%" />
+            <h3>Tìm kiếm: @tk</h3>
+            <div class="sanpham">
+                <ul class="ch">
+                    @foreach (var item in tkk)
+                    {
+                        <li>
+
+                            <a href="#">
+                                @*<img src="~/Content/HinhAnh/@item.HinhAnh" />*@
+                                @item.TenSanPham
+                                <br />
+
+                                @Html.ActionLink("Xem thêm", "", new { id = item.MaSanPham })
+
+                            </a>
+
+                        </li>
+                    }
+                </ul>
+      
+        </div>
+        
+
+  
+
+
+
+

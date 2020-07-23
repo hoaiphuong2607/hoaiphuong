@@ -1,0 +1,59 @@
+﻿
+@using ChieuTrucDB.Models
+@model HoaDon
+@{
+    ViewBag.Title = "Thanh Toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 title">
+            <p class="title-wrap"><a href="~/trang-chu">Trang chủ</a> > <span>@ViewBag.Title</span></p>
+        </div>
+
+        <div class="col-xs-12  col-lg-5 col-md-6">
+            <div class="text-center title-order">Thông tin mua hàng</div>
+            @using (Html.BeginForm("Order", "SanPham", FormMethod.Post))
+            {
+                <div class="form-group col-5">
+                    <label for="email">Họ và tên:</label>
+                    @Html.TextBoxFor(n => n.TenKhachHang, new { @class = "form-control", @placeholder = "Họ và tên" })
+                    @Html.ValidationMessageFor(n => n.TenKhachHang, "", new { @class = "text-error text-danger" })
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Số điện thoại:</label>
+                    @Html.TextBoxFor(n => n.DienThoai, new { @class = "form-control", @placeholder = "Số điện thoại" })
+                    @Html.ValidationMessageFor(n => n.DienThoai, "", new { @class = "text-error text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="addresss">Địa chỉ:</label>
+                    @Html.TextAreaFor(n => n.DiaChi, new { @class = "form-control", @rows = "4", @placeholder = "Địa chỉ" })
+                    @Html.ValidationMessageFor(n => n.DiaChi, "", new { @class = "text-error text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <label for="form-payment">Hình thức thanh toán:</label>
+                    @Html.DropDownListFor(n => n.HTThanhToan, (IEnumerable<SelectListItem>)ViewBag.HTTT, new { @class = "common-select" })
+                </div>
+
+                <div class="form-group">
+                    <label for="form-delivery">Hình thức giao hàng:</label>
+                    @Html.DropDownListFor(n => n.HTGiaoHang, (IEnumerable<SelectListItem>)ViewBag.HTGH, new { @class = "common-select" })
+                </div>
+                <div class="text-left">
+                    <input id="btnthanhtoan" type="submit" class="btn btn-success" value="Thanh toán" />
+                </div>
+            }
+
+        </div>
+        <div class="col-xs-12 col-lg-offset-1 col-lg-6 col-md-6">
+            <div class="text-center title-order">Thông tin đơn đặt hàng</div>
+            @Html.Action("ViewCartInOrder", "SanPham")
+        </div>
+    </div>
+</div>
+
+

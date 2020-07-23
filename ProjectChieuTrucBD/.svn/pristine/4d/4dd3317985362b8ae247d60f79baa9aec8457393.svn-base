@@ -1,0 +1,197 @@
+﻿@model ChieuTrucDB.ViewModel.ProductDetail
+@{
+    ViewBag.Title = Model.SanPham.TenSanPham;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <style>
+        .ads-grid {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 30px;
+            font-size: 13px;
+        }
+
+        .services-breadcrumb {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .featured-section {
+            font-family: 'Open Sans', sans-serif;
+        }
+       
+         .product-single-w3l {
+             font-size:24px;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
+<div class="page-head_agile_info_w3l">
+
+</div>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li>
+                    <a href="/danh-muc/@Model.DMSanPham.MetaTitle">@Model.DMSanPham.TenDanhMucSanPham</a>
+                    <i>></i>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="ads-grid">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            @ViewBag.Title
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <div class="col-md-5 single-right-left ">
+            <div class="grid images_3_of_2">
+                <div class="flexslider">
+                    <ul class="slides">
+                        @foreach (var i in Model.HinhAnhs)
+                        {
+                            <li data-thumb="@i.Url">
+                                <div class="thumb-image">
+                                    <img src="@i.Url" data-imagezoom="true" class="img-responsive" alt="">
+                                </div>
+                            </li>
+                        }
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <h3>@Model.SanPham.TenSanPham</h3>
+            <div class="rating1">
+                <span class="starRating">
+                    <input id="rating5" type="radio" name="rating" value="5">
+                    <label for="rating5">5</label>
+                    <input id="rating4" type="radio" name="rating" value="4">
+                    <label for="rating4">4</label>
+                    <input id="rating3" type="radio" name="rating" value="3" checked="">
+                    <label for="rating3">3</label>
+                    <input id="rating2" type="radio" name="rating" value="2">
+                    <label for="rating2">2</label>
+                    <input id="rating1" type="radio" name="rating" value="1">
+                    <label for="rating1">1</label>
+                </span>
+            </div>
+            <p>
+                <span class="item_price">@String.Format("{0:0,0}", Model.SanPham.GiaTien)</span>
+                <label>VNĐ</label>
+            </p>
+            <div class="product-single-w3l">
+                Trạng thái: @Html.Raw(Model.SanPham.SoLuong > 0 ? "Còn hàng" : "Hết hàng")
+            </div>
+        <div class="product-single-w3l">
+            Mô tả: <br /> @Model.SanPham.MoTa
+        </div>
+            @*<div class="occasion-cart">
+                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                    <input type="submit" name="submit" value="@Html.Raw(Model.SanPham.SoLuong>0?"Còn hàng":"Hết hàng")" class="button" />
+                </div>
+            </div>*@
+        </div>
+            <div class="clearfix"> </div>
+        </div>
+</div>
+
+<div class="featured-section" id="projects">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            Sản phẩm khác cùng loại
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+        <div class="content-bottom-in">
+            <ul id="flexiselDemo1">
+                @foreach (var i in Model.SanPhamLienQuan)
+                {
+                    <li>
+                        <div class="w3l-specilamk">
+                            <div class="speioffer-agile">
+                                <a href="/san-pham/@i.MetaTitle-@i.IdSanPham">
+                                    <img class="product-thumnail" src="@i.HinhAnh" alt="">
+                                </a>
+                            </div>
+                            <div class="product-name-w3l">
+                                <h4>
+                                    <a href="/san-pham/@i.MetaTitle-@i.IdSanPham">@i.TenSanPham</a>
+                                </h4>
+                                <div class="w3l-pricehkj">
+                                    <h6>@String.Format("{0:0,0} VNĐ", i.GiaTien)</h6>
+                                    <p>Còn lại: @(Math.Round((double)i.SoLuong, 0)) sản phẩm</p>
+                                </div>
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                    <input type="submit" name="submit" value="Xem thêm" class="button" />
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/Content/Template/js/imagezoom.js"></script>
+    <script src="~/Content/Template/js/jquery.flexslider.js"></script>
+    <script>
+        $(window).load(function () {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!-- //FlexSlider-->
+    <!-- flexisel (for special offers) -->
+    <script src="~/Content/Template/js/jquery.flexisel.js"></script>
+    <script>
+        $(window).load(function () {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 3,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint: 480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint: 640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint: 768,
+                        visibleItems: 2
+                    }
+                }
+            });
+
+        });
+    </script>
+    <!-- //flexisel (for special offers) -->
+}

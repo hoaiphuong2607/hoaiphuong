@@ -1,0 +1,132 @@
+﻿
+@{
+    ViewBag.Title = "Hướng dẫn sử dụng";
+    Layout = "~/Areas/UM/Views/Shared/_Layout.cshtml";
+}
+@section title_header{
+    <div class="page-title-wrapper">
+        <div class="page-title-heading">
+            <div class="page-title-icon">
+                <i class="pe-7s-car icon-gradient bg-mean-fruit">
+                </i>
+            </div>
+            <div>
+                @ViewBag.Title
+            </div>
+        </div>
+        <div class="page-title-actions">
+            <div class="d-inline-block dropdown">
+                <button type="button" class="btn-shadow btn btn-info" onclick="ShowAddModal()" @*data-toggle="modal" data-target="#addModal"*@>
+                    <span class="btn-icon-wrapper pr-2 opacity-7">
+                        <i class="fa fa-plus-circle"></i>
+                    </span>
+                    Thêm câu hỏi
+                </button>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h5 class="card-title">@ViewBag.Title</h5>
+                <div class="table-responsive">
+                    <table id="tableData" class="mb-0 table table-hover table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Câu hỏi</th>
+                                <th>Câu trả lời</th>
+                                <th>Ngày tạo</th>
+                                <th>Ngày sửa</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section _script
+    {
+    <script src="~/Assets/Admin/plugin/ckfinder/ckfinder.js"></script>
+    <script src="~/Assets/Admin/plugin/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/adminScript.js"></script>
+    <script>
+        $(document).ready(function () {
+            GetAllQuestion();
+        });
+    </script>
+}
+@section _modal
+{
+    <div class="modal fade bd-example-modal-lg" id="addModal" tabindex="-2" role="dialog" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewModalTitle">Thêm hướng dẫn</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-inline">
+                        <div class="form-group col-sm-10">
+                            <label class="">Câu hỏi</label>
+                            <input type="text" id="TieuDe" class="form-control col-sm-12" required />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            <button type="button" style="margin-top:21px;" class="btn btn-primary" onclick="AddQuestion()">Thêm mới</button>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <label class="">Trả lời</label>
+                        <textarea rows="1" id="Add_ChiTiet" class="form-control col-sm-12 ckeditor" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade bd-example-modal-lg" id="editModal" tabindex="-2" role="dialog" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="viewModalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" id="IdCauHoi" />
+                    <div class="form-inline">
+                        <div class="form-group col-sm-10">
+                            <label class="">Câu hỏi</label>
+                            <input type="text" id="TieuDe" class="form-control col-sm-12" required />
+                        </div>
+                        <div class="form-group col-sm-2">
+                            @*<button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>*@
+                            <button type="button" style="margin-top:21px;" class="btn btn-primary" onclick="UpdateQuestion()">Cập nhật</button>
+                        </div>
+                    </div>
+                        <div class="form-group col-sm-12">
+                            <label class="">Trả lời</label>
+                            <textarea id="Edit_ChiTiet" class="form-control col-sm-12 ckeditor" required></textarea>
+                        </div>
+                    </div>
+                <div class="modal-footer">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+}

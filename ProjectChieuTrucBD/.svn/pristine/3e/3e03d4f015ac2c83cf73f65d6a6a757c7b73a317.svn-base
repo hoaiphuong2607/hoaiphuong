@@ -1,0 +1,21 @@
+﻿<div class="footer-top">
+    <div class="container-fluid">
+        <div class="col-xs-8 agile-leftmk">
+            <h2>Không muốn bỏ lỡ những sản phẩm mới từ chúng tôi?</h2>
+            <p>Nhập email của bạn để chúng tôi có thể hỗ trợ bạn cập nhật thông tin tốt nhất!</p>
+            @using (Html.BeginForm("MailKhachHang", "KhachHangThanThiet", FormMethod.Post))
+            {
+                <input type="email" placeholder="Địa chỉ email" name="txtMail" required="" />
+                <input type="submit" name="ok-search" value="Gửi" />
+            }
+           
+            <div class="newsform-w3l">
+                <span class="fa fa-envelope-o" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div class="col-xs-4 w3l-rightmk">
+            <img src="~/Content/Template/images/tab3.png" alt=" " />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

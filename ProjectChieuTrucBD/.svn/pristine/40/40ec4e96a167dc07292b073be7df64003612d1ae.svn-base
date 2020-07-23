@@ -1,0 +1,71 @@
+﻿
+@{
+    ViewBag.Title = "Trung tâm bảo hành";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-head_agile_info_w3l">
+
+</div>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Terms of use-section -->
+<section class="terms-of-use">
+    <!-- terms -->
+    <div class="terms">
+        <div class="container">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">
+                @ViewBag.Title.ToUpper()
+                <span class="heading-style">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </h3>
+            <div class="col-sm-12 form-group">
+                <select id="selectTinhThanh" class="col-sm-12 form-control" style="margin-top:5px;">
+                </select>
+            </div>            
+        </div>
+    </div>
+    <!-- /terms -->
+</section>
+<!-- //Terms of use-section -->
+
+<div class="map w3layouts">
+    <iframe id="showMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5424355246173!2d106.6606754144422!3d10.997868758075375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d11022e35bd9%3A0x8f67317d4eb0d0c2!2zNTA0IFBo4bqhbSBOZ8WpIEzDo28sIEhp4buHcCBUaMOgbmgsIFRo4bunIEThuqd1IE3hu5l0LCBCw6xuaCBExrDGoW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1559040441462!5m2!1svi!2s" allowfullscreen></iframe>
+</div>
+
+@section scripts{
+    <!-- script for tabs -->
+    <script>
+        $(function () {
+            GetSelect2TrungTamBH('#selectTinhThanh');
+            $('#selectTinhThanh').on('change', function () {
+                if ($('#selectTinhThanh option:selected').val() != '') {
+                    var value = $('#selectTinhThanh option:selected').attr('src');
+                    $('#showMap').attr('src', value);
+                }
+                else {
+                    $('#showMap').attr('src', `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.5424355246173!2d106.6606754144422!3d10.997868758075375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d11022e35bd9%3A0x8f67317d4eb0d0c2!2zNTA0IFBo4bqhbSBOZ8WpIEzDo28sIEhp4buHcCBUaMOgbmgsIFRo4bunIEThuqd1IE3hu5l0LCBCw6xuaCBExrDGoW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1559040441462!5m2!1svi!2s`);
+                }
+            });
+
+        });
+    </script>
+    <!-- script for tabs -->
+}

@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace ChieuTrucDB.Areas.UM.Controllers
+{
+    public class CustomersController : BaseController
+    {
+        public ActionResult Messages()
+        {
+            return View();
+        }
+        public ActionResult Support()
+        {
+            return View();
+        }
+        public ActionResult FAQ()
+        {
+            return View();
+        }
+
+        public ActionResult Loyal()
+        {
+            return View();
+        }
+    }
+}

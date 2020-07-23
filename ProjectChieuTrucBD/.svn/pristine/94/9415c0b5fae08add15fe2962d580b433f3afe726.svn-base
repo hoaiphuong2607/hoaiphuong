@@ -1,0 +1,601 @@
+﻿@model List<ChieuTrucDB.Models.ThongTinDN>
+
+@{
+    ViewBag.Title = "Về chúng tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper">
+
+
+    <div class="banner-item banner-right">
+
+    </div>
+
+    <div class="banner-item banner-left">
+
+    </div>
+    <script type="text/javascript">
+        var linkURL = [
+            ["", "~/Images/ctinhoa.jpg", "/Resources/Slide/02_slides.png", "_parent", "Chiếu trúc in hoa", "/Images/ctinhoa.jpg", "~/Images/ctinhoa.jpg"],
+            ["/danh-muc/chieu-in-hoa", "~/Images/ctinhoa.jpg", "/Resources/Slide/03_slides.png", "_parent", "Chiếu trúc in hoa", "/Images/ctinhoa.jpg", "/Images/ctinhoa.jpg"],
+            ["/danh-muc/chieu-truc-tron", "~/Images/chieutrucmoc.jpg", "/Resources/Slide/04_slides.png", "_parent", "Chiếu trúc mộc/ trơn", "/Images/chieutrucmoc.jpg", "/Images/chieutrucmoc.jpg"],
+            ["/danh-muc/chieu-hat", "~/Images/chieutrucmoc.jpg", "/Resources/Slide/03_slides.png", "_parent", "Chiếu trúc hạt", "/Images/hat den 2jpg.jpg", "/Images/CHIEUHAT.jpg"],
+            ["/danh-muc/chieu-hoc-sinh", "~/Images/chieutrucmoc.jpg", "/Resources/Slide/01_slides.png", "_parent", "Chiếu trúc cho học sinh", "/Images/BDH1M62A.jpg", "/Images/chieuhat.jpg"],
+        ];
+
+
+        var imgsNum = linkURL.length - 1;
+
+        //total number of page
+        var MaxLength = Math.ceil(imgsNum / 5);
+
+
+        //Button Positon Setting====================================================
+        var activebtnID = 1;
+        var startID = 1;
+        var btnOverFlag = 0;
+        var id = id;
+        $("#jsMainBtSet").ready(function () {
+            var cellID;
+            var localimgNum = 1;
+            for (i = 1; i <= MaxLength; i++) {
+                cellID = "jsMainbt" + i;
+                cellUlID = "jsMainUl" + i;
+                var squareBox = '<div id="' + cellID + '" class="jsMainbtCls clearfix"><ul id="' + cellUlID + '" class="jsMainBtUi"></ul></div>';
+                $("#jsMainBtSet").append(squareBox);
+                var gorlID = startID + 4;
+                var delytimes = 0;
+                var xid = 0;
+                for (j = startID; j <= gorlID; j++) {
+                    if (j <= imgsNum) {
+                        var liID = "jsMainLi" + j;
+                        //$("#"+cellUlID).append('<li id="'+liID+'" class="btnImgae"><a href="#"><img src="static/images/'+linkURL[j][1]+'" alt="" width="160" height="160"></a></li>');
+                        $("#" + cellUlID).append('<li id="' + liID + '" class="btnImgae"><img class="icon_category" src="' + linkURL[j][1] + '" alt="" width="48" height="43"><div class="title_jsMainLi" id="title_jsMainLi"><div id="title_jsMainLi_right">' + linkURL[j][4] + '</div></div><div class="content_jsMainLi"><a href="' + linkURL[j][0] + '"><img src="' + linkURL[j][5] + '" alt="" /></a></div></li>');
+
+                        if (linkURL[j][3]) {
+                            $("#" + liID + " > a").attr({ "target": linkURL[j][3] });
+                        }
+
+                        $("#" + liID + " > a").attr({ "href": linkURL[j][0] });
+                        $("#" + liID).css({ "top": "210px", "left": (182 * xid) + "px" });
+                        $("#" + liID).hover(function () {
+                            btnOverFlag = 1;
+                            myName = $(this).attr("id");
+                            myid = myName.slice(8);
+                            bg_change(myid);
+                        }, function () {
+                            btnOverFlag = 0;
+                        });
+                        $("#" + liID).delay(delytimes).animate({ "top": 0 }, {
+                            easing: 'easeOutQuart', duration: 500, complete: function (e) {
+                                initFlag = 1;
+                                if ($(this).attr("id") == "jsMainLi5" && imgsNum > 5) {
+                                    $("#jsMainArwL").css({ "visibility": "visible" });
+                                    $("#jsMainArwR").css({ "visibility": "visible" });
+                                }
+                            }
+                        });
+                        delytimes += 200;
+                        xid += 1;
+                    }
+                }
+                startID = gorlID + 1;
+                if (i > 1) {
+                    $("#" + cellID).css({ "display": "none" });
+                }
+                if (imgsNum < 5) {
+                    var myWidth = imgsNum * $(".btnImgae").width();
+                    var myPosition = (1000 - myWidth) / 2;
+                    $("#jsMainBtSet").css({ "width": myWidth + "px", "left": myPosition + "px", "position": "absolute" });
+                }
+            }
+        });
+        //Vars for Motion===================================================================
+        var btnMoveFlag = 0;
+        var b2id;
+        var oneSetWidth = 1000;
+        //move left===================================================================
+        function btn_move_left() {
+            motionstart();
+            var block1 = "#jsMainbt" + activebtnID;
+            $(block1).css({ "left": "0px", "display": "block" });
+            var np1 = oneSetWidth + "px";
+            $(block1).animate({ "left": np1 }, { easing: 'easeOutQuart', duration: 500 });
+            if (activebtnID == 1) { b2id = MaxLength; } else { b2id = activebtnID - 1; }
+            if (rampID > 0) { b2id = rampID }
+            var block2 = "#jsMainbt" + b2id;
+            var np2 = (oneSetWidth * -1) + "px";
+            $(block2).css({ "left": np2, "display": "block" });
+            $(block2).animate({ "left": "0px" }, { easing: 'easeOutQuart', duration: 500, complete: function (e) { activebtnID = b2id; motionstop(); } });
+        }
+
+        //move right===================================================================
+        function btn_move_right() {
+            motionstart();
+            var block1 = "#jsMainbt" + activebtnID;
+            $(block1).css({ "left": "0px", "display": "block" });
+            var np1 = (oneSetWidth * -1) + "px";
+            $(block1).animate({ "left": np1 }, { easing: 'easeOutQuart', duration: 500 });
+            var b2id;
+            if (activebtnID < MaxLength) { b2id = activebtnID + 1; } else { b2id = 1; }
+            if (rampID > 0) { b2id = rampID }
+            var block2 = "#jsMainbt" + b2id;
+            var np2 = oneSetWidth + "px";
+            $(block2).css({ "left": np2, "display": "block" });
+            $(block2).animate({ "left": "0px" }, { easing: 'easeOutQuart', duration: 500, complete: function (e) { activebtnID = b2id; motionstop() } });
+        }
+
+
+
+        function motionstart() {
+            btnMoveFlag = 1;
+        }
+
+        function motionstop() {
+            btnMoveFlag = 0;
+            rampID = 0;
+            ramp_change(activebtnID - 1);
+            var localID = ((activebtnID - 1) * 5) + 1;
+            bg_change(localID);
+        }
+
+        //background-image setting==================================================================
+        var oldimg;
+        var durmmSec = 500;
+        var oldName = "" + linkURL[0][2];
+        function bg_change(num) {
+            if (activebgID != num) {
+                btnonFlag = 0;
+                if (oldimg != null) {
+                    $("#bg" + oldimg).stop(true, false).css({ "opacity": 0, "display": "none" });
+                }
+                if (activebgID != null) {
+                    $("#bg" + activebgID).stop(true, false).removeClass("nextBg").addClass("oldBg");
+                    oldimg = activebgID;
+                }
+                $("#bg" + num).stop(true, false).removeClass("oldBg").css({ "opacity": 0, "display": "block" }).addClass("nextBg").animate({ "opacity": 1 }, { duration: durmmSec, queue: false });
+                activebgID = num;
+            }
+        }
+        $("#jsMainimg2").ready(function () {
+            var bgID;
+            for (var i = 0; i < linkURL.length; i++) {
+                bgID = "bg" + i;
+                var bgimgBox = '<div id="' + bgID + '" class="bgimgsBox"><a href="' + linkURL[i][0] + '"><img src="' + linkURL[i][2] + '" border="0" width="950"></a></div>';
+                $("#jsMainBg2").append(bgimgBox);
+                if (i > 0) {
+                    $("#" + bgID).css({ "display": "none" });
+                } else {
+                    $("#bg" + activebgID).addClass("oldBg");
+                }
+            }
+
+            bg_change(0);
+        });
+
+        //auto change
+        var setnum;
+        var intmmSec = 5000;
+        var autobgchFlag = 0;
+        var activebgID = 0;
+        var tid = setInterval("bgautochange()", intmmSec);
+        function bgautochange() {
+            if (btnOverFlag == 0 && btnMoveFlag == 0) {
+                durmmSec = 2000;
+                if (activebgID < imgsNum) {
+                    setnum = parseInt(activebgID) + 1;
+                } else {
+                    setnum = 0;
+                }
+                bg_change(setnum);
+            }
+        }
+        $("#jsMainBlock").ready(function () {
+            $("#jsMainBlock").hover(function () { jmbStart(); }, function () { jmbStop(); });
+        });
+
+        function jmbStart() {
+            clearInterval(tid);
+            autobgchFlag = 0;
+        }
+
+        function jmbStop() {
+            clearInterval(tid);
+            var localID;
+            if (activebgID < imgsNum) {
+                localID = activebgID;
+            } else {
+                localID = 0;
+            }
+            $("#msg").text(localID);
+            bg_change(localID);
+            tid = setInterval("bgautochange()", intmmSec);
+        }
+
+        //ramp setting==================================================================
+        var rampTop = "10px";
+        var rampID = 0;
+        function ramp_change(num) {
+            for (var i = 0; i < 3; i++) {
+                if (i == num) {
+                    $("#locRamp" + i).attr({ "src": "static/images/loc_ramp_on.png" });
+                } else {
+                    $("#locRamp" + i).attr({ "src": "static/images/loc_ramp_off.png" });
+                }
+            }
+        }
+        function ramp_motion(num) {
+            if (rampID == 0 && btnMoveFlag == 0 && parseInt(activebtnID) != parseInt(num)) {
+                rampID = num;
+                if (activebtnID > rampID) {
+                    btn_move_left();
+                } else {
+                    btn_move_right();
+                }
+            }
+        }
+
+        $("#JsMainRmp").ready(function () {
+            $("#JsMainRmp").css({ "visibility": "hidden" });
+            /*if(imgsNum>4){
+             var rampMax = Math.ceil(imgsNum/4);
+             var yohaku = 0;
+             for(var i=1;i<=rampMax;i++){
+                if(i != rampMax){
+                $("#JsMainRmp").append('<li class="locBlockli1"><a href="#" onClick="ramp_motion('+i+'); return false;"><img src="static/images/loc_ramp_off.png" name="loc_ramp'+(i-1)+'" width="14" height="14" id="locRamp'+(i-1)+'" /></a></li>');
+                } else {
+                $("#JsMainRmp").append('<li class="locBlockli2"><a href="#" onClick="ramp_motion('+i+'); return false;"><img src="static/images/loc_ramp_off.png" name="loc_ramp'+(i-1)+'" width="14" height="14" id="locRamp'+(i-1)+'" /></a></li>');
+                }
+             }
+             $("#JsMainRmp").css({"left":"82px","top":rampTop})
+             ramp_change(0);
+            }else {
+             $("#JsMainRmp").css({"visibility":"hidden"});
+            }*/
+        });
+        //menu Positon Setting==================================================================
+        var initFlag = 0;
+        var btnonFlag = 0;
+
+        //menu hitarea setting
+        $("#cpArea").ready(function () {
+            $("#cpArea").css({ "opacity": 0 });
+        });
+
+        //menu motion setting
+        $("#jsMainCp").ready(function () {
+            //$("#jsMainCp").hover(function(){menu_up();},function(){menu_down();});
+
+            $("#jsMainBtSet li").each(function (index) {
+                $(this).css({ "top": 145 });
+                $(this).hover(function () {
+                    $(this).stop(true, true).animate({ "top": -118 }, { easing: 'easeOutQuart', duration: 400 });
+                    $(this).css('color', '#789f2a');
+                    var src = $(this).children('img').attr('src');
+                    var src_replace = src.replace('01', '02');
+                    $(this).children('img').attr('src', src_replace);
+
+                    $(this).find("div#title_jsMainLi").css({ background: "url(image/bg-hover-title-jsmainli.png) no-repeat" });
+                }
+                    , function () {
+                        $(this).stop(true, true).animate({ "top": 0 }, { easing: 'easeOutQuart', duration: 400 });
+                        $(this).css('color', '#000');
+                        var src = $(this).children('img').attr('src');
+                        var src_replace = src.replace('02', '01');
+                        $(this).children('img').attr('src', src_replace);
+                        $(this).find("div#title_jsMainLi").removeAttr("style");
+                    });
+            });
+        });
+
+        function menu_up() {
+            if (btnOverFlag != 1 && initFlag == 1) {
+                if (imgsNum > 4) {
+                    $("#jsMainArwL").css({ "visibility": "visible" });
+                    $("#jsMainArwR").css({ "visibility": "visible" });
+                }
+                $("#jsMainBtSet").animate({ "top": 0 }, { easing: 'easeOutQuart', duration: 400 });
+                //$("#JsMainRmp").animate({"top":rampTop},{easing:'easeOutQuart',duration:400});
+            }
+        }
+
+        function menu_down() {
+            if (btnOverFlag != 1 && initFlag == 1) {
+                if (imgsNum > 4) {
+                    $("#jsMainArwL").css({ "visibility": "hidden" });
+                    $("#jsMainArwR").css({ "visibility": "hidden" });
+                }
+                $("#jsMainBtSet").animate({ "top": 145 }, { easing: 'easeOutQuart', duration: 400 });
+                //$("#JsMainRmp").animate({"top":220},{easing:'easeOutQuart',duration:400});
+            }
+        }
+
+        //for IE==================================================================
+        var strUA = navigator.userAgent.toLowerCase();
+        if (strUA.indexOf("msie") != -1 && navigator.appVersion.indexOf("MSIE 6.0") != -1) {
+            rampTop = "-10px";
+        }
+        if (strUA.indexOf("msie") != -1 && navigator.appVersion.indexOf("MSIE 7.0") != -1) {
+            rampTop = "-10px";
+        }
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('.bgimgsBox a').attr('target', '_parent');
+        });
+    </script>
+    <style>
+        #TB_window {
+            position: absolute;
+            top: 56%;
+        }
+
+        .bottom {
+            margin-top: 0px !important;
+        }
+    </style>
+    <div id="popup_img" style="display: none;">
+        <div class="shadowPstar">
+
+            <div>
+                <a href="https://shopee.vn/m/COMET-OFFICIAL-STORE"><img alt="" src="~/Content/HomePage/Image/Banner.jpg"></a>
+            </div>
+
+        </div>
+    </div>
+    <div class="top">
+        <a target="_parent">
+            <div id="jsMainBlock">
+                <div id="jsMainFrame"></div>
+                <div id="jsMainBg2"></div>
+                <div id="jsMainCp">
+                    <div id="jsMainBtSet" style="top: 150px;"></div>
+                    <div id="JsMainRmp">
+                        <ul class="clearfix"></ul>
+                    </div>
+                    <div id="jsMainArwL"><a href="#" onclick="btn_move_left(); return false;"><img src="~/Content/HomePage/Image/larrow1.png" alt="" width="25" height="36" border="0"></a></div>
+                    <div id="jsMainArwR"><a href="#" onclick="btn_move_right(); return false;"><img src="~/Content/HomePage/Image/rarrow1.png" alt="" width="25" height="36"></a></div>
+                </div>
+            </div>
+
+    </div>
+</div>
+<!--end wrapper-->
+<!--begin bottom-->
+<script type="text/javascript">
+    $('document').ready(function () {
+        //gb event
+        $("#gb-event-close").click(function () {
+            var target = $("#gb-event-close").attr("data-target");
+            $(target).css({ "display": "none" });
+        });
+        var flag = true;
+        $("#rg_send").click(function () {
+            var text = $('#keywork').val();
+            $('#rg_email').val();
+            if (text == "" || !validEmail(text)) {
+                alert('Email không hợp lệ !')
+                return false;
+            }
+            else {
+
+                tb_show("HAI", "#TB_inline?height=380&amp;width=450&amp;inlineId=form_register&amp&modal=true;", null);
+                var i = 0;
+                $("#TB_ajaxContent .shadowPstar").each(function () {
+                    i++;
+                    if (i > 1) {
+                        $("#TB_ajaxContent .shadowPstar").first().show();
+                        $("#TB_ajaxContent .shadowPstar").last().hide();
+                    } else {
+                        $("#TB_ajaxContent .shadowPstar").first().show();
+                    }
+                })
+
+                $('#rg_email').val(text);
+                return false;
+            }
+        });
+        $('#cm_button_register').click(function () {
+
+            $('#frm-register').submit();
+
+        });
+        $('#frm-register').submit(function () {
+
+            var check = $.trim($('input:checkbox[name=ok]:checked').val());
+            var return_val = true;
+            var color_success = '#00C6FF', color_error = '#F88017';
+            var name = $.trim($('#rg_name').val());
+            var gender = $.trim($('input:radio[name=gender]:checked').val());
+            var year = $.trim($('#rg_year').val());
+            var address = $.trim($('#rg_address').val());
+            var email = $.trim($('#rg_email').val());
+
+            if (check == '') {
+                return_val = false;
+            }
+            if ('' == name) {
+                $('#rg_name').css({ 'border-color': color_error });
+                return_val = false;
+            } else {
+                $('#rg_name').css({ 'border-color': color_success });
+            }
+            if ('' == gender) {
+                $('.gender').css({ 'color': color_error });
+                return_val = false;
+            } else {
+                $('.gender').css({ 'color': color_success });
+            }
+            if ('' == year || !valday(year)) {
+                $('#rg_year').css({ 'border-color': color_error });
+                return_val = false;
+            } else {
+                $('#rg_year').css({ 'border-color': color_success });
+            }
+
+            if ('' == address) {
+                $('#rg_address').css({ 'border-color': color_error });
+                return_val = false;
+            } else {
+                $('#rg_address').css({ 'border-color': color_success });
+            }
+
+
+            if (!return_val) {
+                $('#cm_display_error1').html('Vui lòng nhập đầy đủ thông tin');
+                return false;
+            } else {
+                $('#cm_display_error1').html('');
+
+                $.ajax({
+                    type: "post",
+                    url: '/collectivity/send-mail',
+                    data: { name: name, gender: gender, year: year, address: address, email: email },
+                    cache: false,
+                    success: function (data) {
+                        $('#rg_name').val("");
+                        $('input:radio[name=gender]').removeAttr("checked");
+                        $('#rg_address').val("");
+                        $('#rg_year').val("");
+                        $('#keywork').val("");
+                        $('input:checkbox[name=ok]').removeAttr("checked");
+                        tb_show("HAI", "#TB_inline?height=200&amp;width=450&amp;inlineId=msg_register&amp&modal=true;", null);
+                        $("#TB_ajaxContent .shadowPstar").first().hide();
+                    },
+
+                    error: function () {
+                        alert('Có lỗi xảy ra');
+                    }
+                });
+
+            }
+            return false;
+        });
+    });
+    function valday(day) {
+        var reg = /^([0-9]){2}\/([0-9]){2}\/([0-9]){4}$/;
+        if (reg.test(day) == true) {
+            return true;
+        }
+        return false;
+    }
+    function tb_remove2() {
+        $("#TB_imageOff").unbind("click");
+        $("#TB_closeWindowButton").unbind("click");
+        $("#TB_window").fadeOut("fast", function () { $('#TB_window,#TB_overlay,#TB_HideSelect').trigger("unload").unbind().remove(); });
+        $("#TB_load").remove();
+        if (typeof document.body.style.maxHeight == "undefined") {//if IE 6
+            $("body", "html").css({ height: "auto", width: "auto" });
+            $("html").css("overflow", "");
+        }
+        document.onkeydown = "";
+        document.onkeyup = "";
+        window.location.reload();
+        return false;
+    }
+</script>
+
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- about page -->
+<!-- welcome -->
+<div class="welcome">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            @*Cảm ơn bạn vì đã dành thời gian cho chúng tôi*@
+            Cây tre, cây trúc Việt Nam
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <!-- //tittle heading -->
+
+        <div class="noidung1" style="width:100%; font-size:21px;">
+
+
+            @foreach (var item in Model)
+            {
+                if (item.IdThongTinDN == 2)
+                {
+                    <img id="anh1" style="height: 35%; width: 65%;  float: left; margin-right:10px" src="@item.ChiTiet" />
+
+
+                }
+                if (item.IdThongTinDN == 3)
+                {
+
+                    <img id="anh2" hidden src="@item.ChiTiet" />
+
+                }
+                if (item.IdThongTinDN == 8)
+                {
+                    <img id="anh3" hidden src="@item.ChiTiet" />
+
+
+                }
+
+            }
+
+
+            @foreach (var item in Model)
+            {
+                if (item.IdThongTinDN == 1)
+                {
+
+                    @Html.Raw(item.ChiTiet)
+                }
+            }
+
+
+        </div>
+    </div>
+</div>
+<!-- //welcome -->
+<!-- //about page -->
+@section scripts{
+    <!-- script for tabs -->
+    <script>
+        $(function () {
+
+
+
+            var menu_ul = $('.faq > li > ul'),
+                menu_a = $('.faq > li > a');
+
+            menu_ul.hide();
+
+            menu_a.click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true, true).slideUp('normal');
+                }
+            });
+
+        });
+
+
+
+    </script>
+    <!-- script for tabs -->
+}

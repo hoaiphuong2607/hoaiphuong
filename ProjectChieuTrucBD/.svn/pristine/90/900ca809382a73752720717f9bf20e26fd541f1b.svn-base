@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "HuongDanSuDung";
+}
+<title>Hướng Dẩn sử dụng,Bảo Trì |Chiếu trúc Bình Dương</title>
+<h2></h2>
+<center>
+    <div id="jsMainBlock">
+        <div class=WordSection1>
+            <p align=center style='margin:0in;margin-bottom:.0001pt;text-align:center;background:white;vertical-align:baseline'>
+                <b>
+                    <span style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#70AD47'>
+                        HƯỚNG DẪN SỬ DỤNG VÀ KHẮC PHỤC CÁC LỖI TRONG QUÁ TRÌNH SỬ DỤNG
+                    </span>
+                </b>
+            </p>
+            <img width=300 height=180 src="~/Resources/Images/chieuhat.jpg" align="left" Vspace="100" hspace="190" Border="1" alt="">
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    <a>
+                        &emsp; ✦ Chiếu trúc tăm có kết cấu là các thanh tre, thanh trúc dẹp, mỏng, dài được đan lại bằng chỉ.
+                        &nbsp;&nbsp;&nbsp;&nbsp;Để xử lý các vấn đề trên, chỉ cần dùng keo 502, bột gỗ, chấm vào các chỗ bị lỗi. Sau đó lấy giấy &nbsp;&nbsp;&nbsp;&nbsp;nháp mịn  chà lên mặt trúc cho sạch lớp keo là sử dụng bình thường.
+                        </br> &emsp;<b>✦ Chiếu Trúc Hạt</b>
+                        Trong quá trình sử dụng chiếu trúc hạt có thể gặp phải các lỗi như: hạt bị vỡ, &nbsp;&nbsp;&nbsp;&nbsp;bể, bị đứt cước.
+                        Trường hợp chiếu bị bể hạt cũng thường xẩy ra do các nguyên nhân như gấp chiếu không đúng cách dẫn đên các hạt chiếu không nằm thẳng hàng và chồng nên nhau nên mắt chiếu dễ bị bể hoặc vỡ hạt nếu có thêm lực tác đồng từ bên ngoài.
+                        Trường hợp chiếu bị đứt cước cũng thường xuyên gặp trong quá trình sử dụng, trong đó có cả nguyên nhân chủ quan&nbsp;&nbsp;&nbsp;&nbsp;và khách quan.
+                        Nguyên nhân chính là do chiếu bị kéo quá căng khi sử dụng dẫn đến dây cước bị kéo dãn ra lâu ngày sẽ mất tính đàn hồi từ đó bị đứt.
+                        Để tránh các lỗi về chiếu trúc hạt thì lời khuyên là nên trải chiếu ở bề mặt phẳng, tránh nơi gồ ghề và sắc nhọn, đặc biệt khi di chuyển chiếu cần gấp thành lớp theo nguyên tắc gấp dọc chiếu trước, gấp ngang sau.
+
+                    </a>
+                </span>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    &emsp;<b>✦ Làm gì khi chiếu trúc vỡ hạt?</b>
+                    Chiếu trúc hay còn gọi là chiếu tre là một vật dụng rất bền. Nếu bạn mua chiếu trúc chất lượng thì có thể sử dụng từ 10 – 15 năm, và có thể là lâu hơn nữa. Khác với các loại chiếu khác, khi bị thuộc chỉ hay tuột cước là sẽ dẫn dần hỏng hết cả chiếc chiếu. Chiếu trúc được kết từ nhiều hạt trúc, các hạt trục đều được kết bằng cước. Khi 1 hạt trúc bị bung ra thì chỉ mắt trúc đó bị bung, không ảnh hưởng đến các hạt trúc khác. Vì vậy, bạn chỉ cần mua hạt trúc phù hợp thay thế những hạt trúc bị vỡ.
+                    Nếu bạn mua chiếu trúc trôi nổi trên thị trường, thì khi chiếu trúc bị vỡ hạt, bạn rất khó mua hạt trúc lẻ. Chính vì vậy, để có thể thuận tiện trong quá trình sử dụng lâu dài bên nên mua chiếu trúc ở những cửa hàng uy tín. Như vậy bạn sẽ được bảo hành chiếu trúc và hộ trợ khi chiếu trúc bị vỡ hạt.
+
+                </span>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    &emsp;<b>✦ Làm gì khi chiếu bị đứt cước?</b>
+                    Khi chiếu bị đứt cước, bạn chỉ việc luôn cước qua hạt chiếu vào dây gân, thắt chặt 2 đầu là sử dụng bình thường. Các dây cước hiện có bán tại các cửa hàng đồ câu cá, cửa hàng vật liệu xây dựng.
+                </span>
+            </p>
+            <img width=475 height=182 src="~/Resources/Images/fixChieu.jpg" align=left hspace=10 alt="">
+            <img width=475 height=182 src="~/Resources/Images/sua-chieu-truc.jpg" align=left hspace=10 alt="">
+            <img width=475 height=182 src="~/Resources/Images/hat den 3.jpg" align=left hspace=10 alt="">
+            <img width=475 height=182 src="~/Resources/Images/hat 2.jpg" align=left hspace=10 alt="">
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    &emsp;Phòng kỹ thuật:
+                    </br>&emsp;Công ty Chế Biến gỗ Đông phương
+
+
+
+                </span>
+            </p>
+        </div>
+    </div>
+</center>    
+

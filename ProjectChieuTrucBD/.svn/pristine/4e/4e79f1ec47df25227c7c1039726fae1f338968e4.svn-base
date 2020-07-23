@@ -1,0 +1,80 @@
+﻿@model ChieuTrucDB.Models.ChinhSachBH
+@{
+    ViewBag.Title = "Chính sách bảo hành";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-head_agile_info_w3l">
+
+</div>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<!-- Terms of use-section -->
+<section class="terms-of-use">
+    <!-- terms -->
+    <div class="terms">
+        <div class="container">
+            <!-- tittle heading -->
+            <h3 class="tittle-w3l">
+                @ViewBag.Title.ToUpper()
+                <span class="heading-style">
+                    <i></i>
+                    <i></i>
+                    <i></i>
+                </span>
+            </h3>
+            @if (Model != null)
+            {
+                @Html.Raw(Model.ChiTiet)
+            }
+            else
+            {
+                <div class="col-sm-12 text-center" style="margin-top:30px;">
+                    <p>Hiện tại chúng tôi đang bảo trì tính năng này, xin quý khách vui lòng quay lại sau. Xin cảm ơn!</p>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- /terms -->
+</section>
+<!-- //Terms of use-section -->
+@section scripts{
+    <!-- script for tabs -->
+    <script>
+        $(function () {
+
+            var menu_ul = $('.faq > li > ul'),
+                menu_a = $('.faq > li > a');
+
+            menu_ul.hide();
+
+            menu_a.click(function (e) {
+                e.preventDefault();
+                if (!$(this).hasClass('active')) {
+                    menu_a.removeClass('active');
+                    menu_ul.filter(':visible').slideUp('normal');
+                    $(this).addClass('active').next().stop(true, true).slideDown('normal');
+                } else {
+                    $(this).removeClass('active');
+                    $(this).next().stop(true, true).slideUp('normal');
+                }
+            });
+
+        });
+    </script>
+    <!-- script for tabs -->
+}

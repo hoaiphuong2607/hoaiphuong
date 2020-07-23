@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "DKBaoHanh";
+}
+<title>Chế Độ Bảo Hành|Chiếu trúc Bình Dương</title>
+<h2></h2>
+<center>
+    <div id="jsMainBlock">
+        <div class=WordSection1>
+            <p align=center style='margin:0in;margin-bottom:.0001pt;text-align:center;background:white;vertical-align:baseline'>
+                <b>
+                    <span style='font-size:20.0pt;font-family:''Open Sans'', sans-serif;color:#70AD47'>CHẾ ĐỘ BẢO HÀNH</span>
+                </b>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    <br /><b>1. Đối với những sản phẩm bán ra trong vòng 01 tuần nếu có vấn đề gì trục trặc:</b>
+
+
+                    <br /> -BDMAT đổi ngay cho quý khách hàng một sản phẩm mới 100% ngay lập tức.
+
+
+                    <br />- Yêu cầu: các sản phẩm phải còn nguyên trạng, không bị trầy xước, cũ bẩn, thay đổi hình dạng…
+                </span>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    <img src="~/Images/hat den 3.jpg" class="col-md-12" width="950" height="300" alt="err" />
+                </span>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    <br /><b>2. Đối với những sản phẩm bảo hành:</b>
+
+                    <br />- Quý khách giao các sản phẩm cần bảo hành cho đại lý, cửa hàng gần nhất. BDMAT sẽ sửa chữa các lỗi sản phẩm và hoàn trả cho khách hàng trong thời hạn không quá 3 ngày làm việc tại Bình dương, Đồng nai, Tp. HCM. Các khu vực khác không quá 1 tuần.
+
+
+                    <br />- Trường hợp quý khách hàng ở qúa xa các đại lý, cửa hàng có bán sản phẩm BDMAT, hoặc muốn tự sửa chữa, quý khách hàng vui lòng gọi trực tiếp tới Công ty. BDMAT sẽ tư vấn, hướng dẫn để quý khách tự sửa chữa sản phẩm. Quý khách cũng có thể xem cách khắc phục, sửa chữa các loại chiếu trong mục HƯỚNG DẪN SỦ DỤNG CHIẾU.
+
+                    <br /><b>3. Những trường hợp không được bảo hành:</b>
+
+                    <br />- Sản phẩm hết thời hạn bảo hành 1 năm.
+
+
+                    <br />- Sản phẩm hỏng hóc do tác động cơ học, biến dạng, rơi, vỡ, va đập, bị xước, bị hỏng do ẩm ướt, động vật xâm nhập vào, thiên tai, hoả hoạn, sử dụng sai các hướng dẫn sử dụng, cháy nổ hoặc con người làm hỏng.
+
+
+                    <br /><b>4. Thắc mắc, khiếu nại về vấn đề bảo hành:</b>
+                    <br />-Mọi thắc mắc, khiếu nại về vấn đề bảo hành xin quý khách vui lòng liên hệ theo số điện thoại 0944 666 156
+                    <br /> BDMAT xin chân trọng cảm ơn Quý khách !
+                </span>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    <img src="~/Images/hat 2.jpg" class="col-md-12" width="950" height="300" alt="err" />
+                </span>
+            </p>
+        </div>
+    </div>
+</center>
+
+

@@ -1,0 +1,83 @@
+﻿    @model List<ChieuTrucDB.Models.Distributor>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-head_agile_info_w3l">
+
+</div>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a style='font-size:14px' href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li style='font-size:14px'>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="ads-grid wthreelocationsaits" id="wthreelocationsaits">
+    <div class="container">
+        <!-- tittle heading -->
+        @if (Model.Count > 0)
+        {
+        <h3 style='font-size:15px' class="tittle-w3l">
+            <b>@ViewBag.Title</b>
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+            <section class="grid3d vertical" id="grid3d">
+                <div class="grid-wrap">
+                    <div class="grid">
+                        @foreach (var item in Model)
+                        {
+                            <figure class="col-md-4 effect-zoe"><img src="@item.UrlHinhAnh" alt="@item.DiaChi"><figcaption><h4>@item.TenNhaPhanPhoi</h4></figcaption></figure>
+                        }
+                    </div>
+                </div>
+                <div class="content">
+                    @foreach (var item in Model)
+                    {
+                        <div>
+                            <div class="dummy-img dummy-img-1">
+                                <img src="@item.UrlHinhAnh" alt="Odyssey">
+                            </div>
+                            <p class="dummy-text aitsheadingw3">@item.TenNhaPhanPhoi</p>
+                            <p class="dummy-text">@item.MoTa</p>
+                            <p class="dummy-text">Địa chỉ: @item.DiaChi</p>
+                        </div>
+                    }
+                    <span class="loading"></span>
+                    <span class="icon close-content"><i class="fa fa-times" aria-hidden="true"></i></span>
+                </div>
+            </section>
+        }
+        else
+        {
+            <div class="col-sm-12 text-center" style="margin-top:30px;">
+                <p>Hiện tại chúng tôi đang bảo trì tính năng này, xin quý khách vui lòng quay lại sau. Xin cảm ơn!</p>
+            </div>
+        }
+    </div>
+</div>
+
+@section style{
+    <link rel="stylesheet" href="~/Content/Template/distribute/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="~/Content/Template/distribute/css/font-awesome.css" type="text/css" media="all">
+    <script src="~/Content/Template/distribute/js/modernizr.js"></script>
+}
+@section scripts{
+    <script src="~/Content/Template/distribute/js/classie.js"></script>
+    <script src="~/Content/Template/distribute/js/helper.js"></script>
+    <script src="~/Content/Template/distribute/js/grid3d.js"></script>
+    <script>
+        new grid3D(document.getElementById('grid3d'));
+    </script>
+}

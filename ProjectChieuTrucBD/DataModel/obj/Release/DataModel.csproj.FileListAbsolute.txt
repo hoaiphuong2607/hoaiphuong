@@ -1,0 +1,43 @@
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\DataModel.dll.config
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\DataModel.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\DataModel.pdb
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\EntityFramework.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\EntityFramework.xml
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.xml
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Release\DataModel.csproj.CopyComplete
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Release\DataModel.dll
+D:\04_PNS\ChieuTrucBD\ChieuTrucBD\DataModel\obj\Release\DataModel.pdb
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\DataModel.dll.config
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\DataModel.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\DataModel.pdb
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\EntityFramework.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\EntityFramework.SqlServer.dll
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\EntityFramework.xml
+F:\PNS CODE\CTBinhDuong\DataModel\bin\Release\EntityFramework.SqlServer.xml
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Release\DataModel.csprojAssemblyReference.cache
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Release\DataModel.csproj.CopyComplete
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Release\DataModel.dll
+F:\PNS CODE\CTBinhDuong\DataModel\obj\Release\DataModel.pdb
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.dll.config
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.pdb
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.xml
+F:\PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.xml
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.csprojAssemblyReference.cache
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.csproj.CopyComplete
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.dll
+F:\PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.pdb
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.dll.config
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\DataModel.pdb
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.xml
+F:\04_PNS CODE\ChieuTrucBD\DataModel\bin\Release\EntityFramework.SqlServer.xml
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.csprojAssemblyReference.cache
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.csproj.CopyComplete
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.dll
+F:\04_PNS CODE\ChieuTrucBD\DataModel\obj\Release\DataModel.pdb

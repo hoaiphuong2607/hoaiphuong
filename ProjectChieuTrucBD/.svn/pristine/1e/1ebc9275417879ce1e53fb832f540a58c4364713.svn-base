@@ -1,0 +1,37 @@
+﻿<div class="mainmenu" style="color:chartreuse">
+    <ul id="nav" class="menu">
+        <li>
+            <a style="font-size:14px" class="first trang-chu" href="/trang-chu">Trang chủ</a>
+        </li>
+        <li>
+            <a style="font-size:14px" class="lien-he ve-chung-toi" href="/ve-chung-toi">Về BDMAT</a>
+            <ul>
+                <li style="font-size:14px" class="ve-chung-toi"><a href="/ve-chung-toi">Cây tre, cây trúc</a></li>
+                <li style="font-size:14px" class=""><a href="">Doanh nghiệp</a></li>
+                <li style="font-size:14px" class="lien-he"><a href="/lien-he">Liên hệ</a></li>
+            </ul>
+        </li>
+        <li>
+            <a style="font-size:14px" id="naviSanPham" href="/danh-muc" class="san-pham danh-muc">Sản phẩm</a>
+            <ul style="font-size:14px" id="nav_sanpham"></ul>
+        </li>
+        <li>
+            <a style="font-size:14px" id="naviPhanPhoi" href="/he-thong" class="he-thong">Hệ thống phân phối</a>
+            <ul>
+                <li style="font-size:14px" class=""><a href="">Siêu thị</a></li>
+                <li style="font-size:14px" class=""><a href="">Cửa hàng</a></li>
+                <li style="font-size:14px" class=""><a href="">Các trang mạng online</a></li>
+            </ul>
+
+        </li>
+        <li style="font-size:14px" class="last">
+            <a style="font-size:14px" class="ho-tro huong-dan-su-dung chinh-sach-bao-hanh trung-tam-bao-hanh" href="/huong-dan-su-dung">Dịch vụ và hỗ trợ</a>
+            <ul>
+                <li style="font-size:14px" class="huong-dan-su-dung"><a href="/huong-dan-su-dung">Hướng dẫn sử dụng</a></li>
+                <li style="font-size:14px" class="trung-tam-bao-hanh"><a href="/trung-tam-bao-hanh">Trung tâm bảo hành</a></li>
+                <li style="font-size:14px" class="chinh-sach-bao-hanh"><a href="/chinh-sach-bao-hanh">Chính sách bảo hành</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>

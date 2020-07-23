@@ -1,0 +1,140 @@
+﻿@using ChieuTrucDB.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "Giỏ hàng";
+}
+<div class="container">
+    <div class="container">
+        <div class="col-lg-12 title">
+            <p class="title-wrap"><a href="~/trang-chu">Trang chủ</a> > <span>@ViewBag.Title</span></p>
+        </div>
+    </div>
+    @if (Model.Count() > 0)
+    {
+        Decimal tong = 0;
+        <div id="body-card" class="container">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr class="cart_menu">
+                            <td class="image">Ảnh</td>
+                            <td class="description">Tên sản phẩm</td>
+                            <td class="price">Đơn giá</td>
+                            <td class="quantity">Số lượng</td>
+                            <td class="total">Thành tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cart in Model)
+                        {
+                            <tr>
+                                <td class="cart_product">
+                                    <img class="img-responsive" src="@Url.Content(cart.image)" alt="Ảnh sản phẩm">
+                                </td>
+                                <td class="cart_description">
+                                    <h4 class="dungchung">@cart.nameProduct</h4>
+                                </td>
+                                <td class="cart_price">
+                                    <div>
+                                        @String.Format("{0:0,0}", cart.price)
+                                    </div>
+                                </td>
+                                <td class="cart_quantity">
+                                    <div class="cart_quantity_button">
+                                        <input class="txtsoluong dodai" onblur="value = value == '' ? 1 : value;" oninput="validity.valid||(value=1);" type="number" min="1" max="20" data-id="@cart.id" value="@cart.quantity" autocomplete="off" size="2" />
+                                    </div>
+                                </td>
+
+                                <td class="cart_total">
+                                    <div class="cart_total_price">@String.Format("{0:0,0}", cart.intoMoney)</div>
+                                </td>
+                                <td class="cart_delete">
+                                    <a class="btnDelete" data-id="@cart.id" href=""><i style="width:30px" class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+                            tong += cart.intoMoney;
+
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-lg-9">
+
+            </div>
+            <div class="col-lg-12 col-xs-12 ">
+                <div class="text-right tool">
+                    <div style="font-size:15px; font-weight:bold; margin-bottom:10px;">Tổng tiền: @String.Format("{0:0,0}", tong) VNĐ</div>
+                    <a href="~/danh-muc" class="btn btn-success">Tiếp Tục Mua Hàng</a>
+                    <button id="btnUpdate" class="btn btn-success">Cập nhật</button>
+                    <a href="~/SanPham/Order" id="btnPayment" class="btn btn-success">Đặt hàng</a>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+        <div class="container continue-shopping">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <a href="~/danh-muc" class="btn btn-warning">Tiếp Tục Mua</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var cart = {
+            init: function () {
+                cart.regEvents();
+            },
+            regEvents: function () {
+                $('#btnUpdate').off('click').on('click', function () {
+                    var DanhSach = $('.txtsoluong');
+                    var CartList = [];
+                    $.each(DanhSach, function (i, item) {
+                        CartList.push({
+                            id: $(item).data('id'),
+                            quantity: $(item).val(),
+                        });
+                    });
+                    $.ajax({
+                        url: '/SanPham/Update',
+                        data: { CartModel: JSON.stringify(CartList) },
+                        dataType: "json",
+                        type: "POST",
+                        success: function (res) {
+                            if (res.status == true) {
+                                $('#render-body').load("/SanPham/CartPartial");
+                                $('#section-cart').load("/SanPham/IconCartPartial");
+                            }
+                        }
+                    })
+                });
+                $('.btnDelete').off('click').on('click', function (e) {
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    $.ajax({
+                        data: { id: id },
+                        url: '/SanPham/Delete',
+                        dataType: 'json',
+                        type: 'POST',
+                        success: function (res) {
+                            if (res.status == true) {
+                                $('#render-body').load("/SanPham/CartPartial");
+                                $('#section-cart').load("/SanPham/IconCartPartial");
+                            }
+                        }
+                    })
+                });
+            }
+
+        }
+        cart.init();
+    });
+</script>

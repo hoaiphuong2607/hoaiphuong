@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "TTBaoHanh";
+}
+<title>Trung Tâm Bảo Hành |Chiếu trúc Bình Dương</title>
+<h2></h2>
+<center>
+    <div id="jsMainBlock">
+        <div class=WordSection1>
+            <p align=center style='margin:0in;margin-bottom:.0001pt;text-align:center;background:white;vertical-align:baseline'>
+                <b>
+                    <span style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#70AD47'>TRUNG TÂM BẢO HÀNH CHIẾU TRE VIỆT NAM</span>
+                </b>
+            </p>
+            <p style='margin-left:0in;margin-bottom:.10pt;text-align:justify;line-height:15.75pt;background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:14px;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    Nếu Chiếu Tre có bị hư hỏng trong quá trình sử dụng thì các bạn hãy mang đến trung tâm bảo hành để họ sửa chữa nhé.  Hiện tại có nhiều nơi bảo hành nên bạn không cần phải lo lắng quá nhiều. Chú ý trước khi mua đệm massage của cửa hàng nên hỏi về chế độ bảo hành luôn để tránh tình trạng tiền mất tật mang.
+                </span>
+            </p>
+            <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+            <script type="text/javascript">
+                var gmap = new google.maps.LatLng(10.765974, 106.689422);
+                var marker;
+                function initialize() {
+                    var mapProp = {
+                        center: new google.maps.LatLng(10.765974, 106.689422),
+                        zoom: 16,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+
+                    var map = new google.maps.Map(document.getElementById("googleMap")
+                        , mapProp);
+
+                    var styles = [
+                        {
+                            featureType: 'road.arterial',
+                            elementType: 'all',
+                            stylers: [
+                                { hue: '#fff' },
+                                { saturation: 100 },
+                                { lightness: -48 },
+                                { visibility: 'on' }
+                            ]
+                        }, {
+                            featureType: 'road',
+                            elementType: 'all',
+                            stylers: [
+
+                            ]
+                        },
+                        {
+                            featureType: 'water',
+                            elementType: 'geometry.fill',
+                            stylers: [
+                                { color: '#adc9b8' }
+                            ]
+                        }, {
+                            featureType: 'landscape.natural',
+                            elementType: 'all',
+                            stylers: [
+                                { hue: '#809f80' },
+                                { lightness: -35 }
+                            ]
+                        }
+                    ];
+
+                    var styledMapType = new google.maps.StyledMapType(styles);
+                    map.mapTypes.set('Styled', styledMapType);
+
+                    marker = new google.maps.Marker({
+                        map: map,
+                        draggable: true,
+                        animation: google.maps.Animation.DROP,
+                        position: gmap
+                    });
+                    google.maps.event.addListener(marker, 'click', toggleBounce);
+                }
+
+                function toggleBounce() {
+
+                    if (marker.getAnimation() !== null) {
+                        marker.setAnimation(null);
+                    } else {
+                        marker.setAnimation(google.maps.Animation.BOUNCE);
+                    }
+                }
+
+                google.maps.event.addDomListener(window, 'load', initialize);
+            </script>
+            <div id="googleMap" style="width: 950px; height: 500px;">Google Map</div>
+        </div>
+    </div>
+</center>
+
+

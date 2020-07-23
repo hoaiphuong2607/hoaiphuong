@@ -1,0 +1,138 @@
+﻿@model ChieuTrucDB.Models.Product
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    .left {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 57.35098%;
+        margin-left: 190px;
+    }
+
+    .right {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 40.29137%;
+        margin-right: 368px;
+    }
+
+    header {
+        display: flex;
+        margin-left: 194px;
+    }
+
+    section {
+        display: flex
+    }
+
+    .page-detail .body .main-cont {
+        float: left;
+        display: block;
+        margin-right: 2.35765%;
+        width: 100%;
+    }
+
+        .page-detail .body .main-cont:last-child {
+            margin-right: 0;
+        }
+
+        .page-detail .body .main-cont .product-header {
+            border-bottom: 1px solid #3e3e3e;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .page-detail .body .main-cont .product-main .product-summary {
+            display: block;
+        }
+
+    .slick-slider {
+        position: initial;
+        display: block;
+        box-sizing: border-box;
+        user-select: none;
+        touch-action: pan-y;
+    }
+
+ .product-footer {
+        border-top: 2px solid #3e3e3e;
+        margin-top: 15px;
+        padding-top: 15px;
+        width: 1500px;
+    }
+
+    .txt-medium {
+        font-weight: 500;
+    }
+
+    .txt-upper {
+        text-transform: uppercase;
+    }
+
+    .txt-oswald {
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    .slick-slider {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        user-select: none;
+        touch-action: pan-y;
+    }
+</style>
+
+<section class="body">
+    <div class="main-cont">
+        <header class="product-header">
+            <h2>@Model.name</h2>
+        </header>
+        <main class="product-main">
+            <section class="product-summary">
+                <div class="left">
+                    <div class="slider-for">
+                        <div>
+                            <img src="@Model.thumbnail" width="600" height="500" alt="@Model.thumbnail">
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <ul class="ul-p-details">
+                        <li>Mã sản phẩm: @Model.id</li>
+                        <li>Loại Chiếu: @Html.DisplayFor(Model => Model.category.name)</li>
+                        <li>Số Lượng: @Model.amount</li>
+                        <li>
+                            Trạng Thái: @{
+                                if (Model.valid)
+                                {
+                                    @Html.Raw("Còn Hàng")
+                                }
+                                else
+                                {
+                                    @Html.Raw("Hết Hàng")
+                                }
+                            }
+                        </li>
+                        <li>Mô Tả: @Model.description</li>
+                    </ul>
+                    <div class="p-price">
+                        <h2>@Model.price 000VNĐ</h2>
+                    </div>
+                    <div class="p-toolbar">
+                        <input type="number" id="txtQty" value="1" min="1" max="99">
+
+                        <a class="btn btn-square btn-red txt-upper" href="#">mua ngay</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+</section>
+@Html.Action("SpLienQ")
+
+
+

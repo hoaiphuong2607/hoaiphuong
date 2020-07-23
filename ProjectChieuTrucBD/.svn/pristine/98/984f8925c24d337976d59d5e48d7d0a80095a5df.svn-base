@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "About";
+}
+
+<title>Cây Tre Cây Trúc Việt Nam |Chiếu trúc Bình Dương</title>
+<center>
+    <div id="jsMainBlock">
+        <div class=WordSection1>
+
+            <p align=center style='margin:0in;margin-bottom:.0001pt;text-align:center;
+background:white;vertical-align:baseline'>
+                <b>
+                    <span style='font-size:18.0pt;
+font-family:''Open Sans'', sans-serif;color:#70AD47'>Cây tre cây trúc Vi&#7879;t Nam</span>
+                </b>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>
+                    T&#7915; núi cao c&#7921;c
+                    B&#7855;c t&#7899;i sông n&#432;&#7899;c Cà Mau, m&#7895;i vùng sinh thái
+                    &#273;&#7873;u t&#432;&#417;i xanh nh&#7919;ng loài th&#7843;o m&#7897;c, hoa
+                    trái &#273;&#7863;c tr&#432;ng. Nh&#432;ng thân th&#432;&#417;ng xi&#7871;t
+                    bao, khi &#273;âu &#273;âu c&#361;ng b&#7889;n mùa xanh nh&#7919;ng l&#361;y
+                    tre t&#432;&#417;i t&#7889;t. T&#7915; B&#7855;c chí Nam, trên núi trên
+                    &#273;&#7891;i b&#7841;t ngàn tre, trúc n
+                </span><img width=342 height=199
+                            src="~/Resources/Images/1.jpg" align=left hspace=12
+                            alt=""><span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    &#7913;a
+                    giang v&#7847;u… &#272;&#7891;ng b&#7857;ng thì làng quê nào c&#361;ng l&#361;y
+                    l&#361;y t&#7847;ng t&#7847;ng tre trúc bao b&#7885;c, b&#7901; &#273;ê nào
+                    c&#361;ng tre xanh, trúc vàng ch&#7855;n sóng và ng&#259;n l&#361;, nên sông
+                    quê &quot;n&#432;&#7899;c g&#432;&#417;ng trong soi tóc nh&#7919;ng hàng
+                    tre&quot;&nbsp;(T&#7871; Hanh).
+                </span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>
+                    Tre, trúc, lu&#7891;ng,
+                    n&#7913;a, t&#7847;m vông, v&#7847;u,… kh&#7855;p m&#7885;i n&#7867;o
+                    &#273;&#432;&#7901;ng, ngõ ngách, vùng, mi&#7873;n mà có tên g&#7885;i khác
+                    nhau, nh&#432;ng &#273;&#7873;u&nbsp;là b&#7841;n &#273;&#7891;ng hành
+                    th&#7911;y chung, thân thi&#7871;t c&#7911;a ng&#432;&#7901;i dân ta t&#7915;
+                    thu&#7903; xa x&#432;a gian lao su&#7889;t nhi&#7873;u th&#7871; k&#7927; khai
+                    hoang m&#7903; &#273;&#7845;t &#273;&#7875; r&#7891;i d&#7921;ng
+                    n&#432;&#7899;c. Nh&#7919;ng làng xã &#273;&#7883;nh c&#432; v&#7899;i l&#361;y
+                    tre xanh bao b&#7885;c ng&#259;n gió bão, t&#7915; &#7845;y &#273;ã là
+                    &#273;&#7863;c tr&#432;ng
+                </span><img width=280 height=222 src="~/Resources/Images/2.jpg" align=right hspace=12
+                            alt=""><span lang=VI style='font-size:11.0pt;font-family:''Open Sans'', sans-serif;color:#222222'>
+                    không
+                    ch&#7881; c&#7911;a không gian sinh t&#7891;n c&#7911;a làng, mà còn là
+                    &#273;&#7863;c tr&#432;ng v&#259;n hóa - th&#7849;m m&#7929; riêng có c&#7911;a
+                    làng quê Vi&#7879;t Nam. Trong sâu xa tâm th&#7913;c ng&#432;&#7901;i
+                    Vi&#7879;t t&#7915; thu&#7903; &#7845;y, &#273;ã bình yên và xanh mát bóng yêu
+                    th&#432;&#417;ng.
+                </span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>
+                    Tre, n&#7913;a theo
+                    ng&#432;&#7901;i cùng m&#7897;t lúc làm nên c&#7843; v&#259;n hóa v&#7853;t
+                    th&#7875; l&#7851;n v&#259;n hóa phi v&#7853;t th&#7875; cho x&#7913; s&#7903;
+                    chúng ta. Ki&#7871;n trúc &#432;? Thì nhà tranh tre n&#7913;a lá, v&#7899;i
+                    phên v&#7899;i li&#7871;p tre &#273;an. Ti&#7879;n nghi &#432;? Thì nào
+                    gi&#432;&#7901;ng chõng, bàn gh&#7871;, t&#7911; ch&#7841;n... cho
+                    &#273;&#7871;n l&#7855;m th&#7913; &#273;&#7891; &#259;n th&#7913;c làm: Nong
+                    nia, d&#7847;n sàng, thúng m&#7911;ng, r&#7893; rá, c&#7889;i xay tre... Công
+                    c&#7909; nhà nông &#432;? Thì &#273;òn càn &#273;òn xóc, quang gánh... &#272;i
+                    l&#7841;i trên sông n&#432;&#7899;c, &#273;ánh b&#7855;t cá &#432;? Thì
+                    thuy&#7873;n nan, thuy&#7873;n thúng, c&#7847;n câu, vó bè, n&#417;m, &#273;ó,
+                    d&#7853;m tre &#273;an... &#272;&#7891; ch&#417;i và nh&#7841;c c&#7909;
+                    &#432;? Thì que kh&#259;ng, que chuy&#7873;n, cây &#273;u, di&#7873;u sáo, sáo,
+                    tiêu, khèn bè, &#273;àn t&#417; r&#432;ng tre n&#7913;a, c&#7843; cây nêu ngày
+                    T&#7871;t và c&#7897;t c&#7901; l&#7877; h&#7897;i &#273;ình làng c&#361;ng là
+                    vông, là trúc...
+                </span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:"''Open Sans'', sans-serif;color:#222222'>
+                    &#272;ó là th&#7901;i
+                    &#273;&#7845;t n&#432;&#7899;c ch&#432;a phát tri&#7875;n nh&#432; hi&#7879;n
+                    nay. &#7902; th&#7901;i hi&#7879;n &#273;&#7841;i, t&#7915; tre, t&#7915; trúc,
+                    n&#7913;a cùng v&#7899;i song, mây, mà nên ngh&#7873; th&#7911; công, m&#7929;
+                    ngh&#7879; v&#7899;i l&#7855;m th&#7913; hàng hóa tre trúc song mây, v&#7899;i
+                    nh&#7919;ng làng ngh&#7873; tre mây có ti&#7871;ng nay &#273;&#432;&#7907;c
+                    nâng niu nh&#432; m&#7897;t d&#7841;ng v&#259;n hóa phi v&#7853;t th&#7875;.
+                </span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>&nbsp;</span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>
+                    &nbsp;Và &#273;&#7863;c
+                    bi&#7879;t h&#417;n, k&#7871;t h&#7907;p công ngh&#7879; và k&#7929;
+                    thu&#7853;t hi&#7879;n &#273;&#7841;i, nh&#7857;m &#273;áp &#7913;ng nhu
+                    c&#7847;u cu&#7897;c s&#7889;ng không ng&#7915;ng t&#259;ng lên, s&#7843;n
+                    ph&#7849;m chi&#7871;u làm t&#7915; cây tre, cây trúc v&#7915;a mang nét
+                    truy&#7873;n th&#7889;ng, ch&#7845;t m&#7897;c m&#7841;c, thiên nhiên; các
+                    thanh c&#7853;t cây tre, cây trúc t&#7841;o nên t&#7845;m chi&#7871;u
+                    b&#7873;n, &#273;&#7865;p, an toàn s&#7913;c kh&#7887;e, d&#7877; s&#7917;
+                    s&#7909;ng. V&#7899;i hai lo&#7841;i chi&#7871;u trúc, lo&#7841;i chi&#7871;u in
+                    hoa v&#259;n, chi&#7871;u m&#7897;c - lo&#7841;i tr&#417;n, &#273;&#7911; kích
+                    th&#432;&#7899;c cho các lo&#7841;i gi&#432;&#7901;ng tiêu chu&#7849;n: 1m2,
+                    1m4, 1m6, 1m8. S&#7843;n ph&#7849;m chi&#7871;u trúc hoàn toàn phù h&#7907;p
+                    v&#7899;i khí h&#7853;u nhi&#7879;t &#273;&#7899;i, &#273;&#7863;c bi&#7879;t
+                    các t&#7881;nh thành mi&#7873;n nam n&#7855;ng nóng quanh n&#259;m.
+                </span>
+            </p>
+
+            <p style='margin:0in;margin-bottom:.0001pt;text-align:justify;line-height:15.75pt;
+background:white;vertical-align:baseline'>
+                <span lang=VI style='font-size:11.0pt;
+font-family:''Open Sans'', sans-serif;color:#222222'>
+                    Là m&#7897;t s&#7843;n ph&#7849;m
+                    xanh, thân thi&#7879;n môi tr&#432;&#7901;ng, m&#7897;t l&#7847;n n&#7919;a cây
+                    tre cây trúc &#273;i vào gi&#7845;c ng&#7911; c&#7911;a m&#7885;i gia &#273;ình
+                    Vi&#7879;t, t&#7845;m chi&#7871;u h&#7841;nh phúc, t&#7845;m chi&#7871;u BDMAT!
+                </span>
+            </p>
+
+            <p class=MsoNormal style='text-align:justify'><span lang=VI>&nbsp;</span></p>
+
+        </div>
+    </div>
+</center>
+

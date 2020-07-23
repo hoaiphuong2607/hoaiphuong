@@ -1,0 +1,17 @@
+﻿@using ChieuTrucDB.Models
+@model List<Cart>
+<span id="info-cart" class="icon_cart">
+    <a href="~/gio-hang">
+        <i class="fa fa-shopping-cart"></i>
+        <span>
+            @{
+                int so = 0;
+                foreach (var item in Model)
+                {
+                    so += int.Parse(item.quantity.ToString());
+                }
+            }
+        </span>
+        @Html.ActionLink(so.ToString(), "Cart", "SanPham")
+    </a>
+</span>

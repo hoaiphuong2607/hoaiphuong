@@ -1,0 +1,33 @@
+﻿<div class="mainmenu" style="color:chartreuse">
+    <ul id="nav" class="menu">
+        <li>
+            <a class="first trang-chu" href="/trang-chu">Trang chủ</a>
+        </li>
+        <li>
+            <a class="lien-he ve-chung-toi" href="/ve-chung-toi">Về chúng tôi</a>
+            <ul>
+                <li class="ve-chung-toi"><a href="/ve-chung-toi">Giới thiệu</a></li>
+                <li class="lien-he"><a href="/lien-he">Liên hệ</a></li>
+            </ul>
+        </li>
+        <li>
+            <a id="naviSanPham" href="/danh-muc" class="san-pham danh-muc">Sản phẩm</a>
+            <ul id="nav_sanpham"></ul>
+        </li>
+        <li>
+            <a id="naviPhanPhoi" href="/he-thong" class="he-thong">Hệ thống phân phối</a>
+            <ul id="nav_hethong">
+                @*<li><a href="/he-thong/fanpage">Các trang mạng online</a></li>*@
+            </ul>
+        </li>
+        <li class="last">
+            <a class="ho-tro huong-dan-su-dung chinh-sach-bao-hanh trung-tam-bao-hanh" href="/huong-dan-su-dung">Dịch vụ và hỗ trợ</a>
+            <ul>
+                <li class="huong-dan-su-dung"><a href="/huong-dan-su-dung">Hướng dẫn sử dụng</a></li>
+                <li class="trung-tam-bao-hanh"><a href="/trung-tam-bao-hanh">Trung tâm bảo hành</a></li>
+                <li class="chinh-sach-bao-hanh"><a href="/chinh-sach-bao-hanh">Chính sách bảo hành</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="clear"></div>
+</div>

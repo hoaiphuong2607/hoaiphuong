@@ -1,0 +1,691 @@
+﻿using System;
+using System.Linq;
+using ChieuTrucDB.Models;
+using System.Dynamic;
+using Newtonsoft.Json;
+using ChieuTrucDB.Areas.UM.Models;
+using ChieuTrucDB.Helpers;
+using System.Collections.Generic;
+using ChieuTrucDB.ViewModel;
+
+namespace ChieuTrucDB.DAL
+{
+    public class ProductDAL
+    {
+        DatabaseContext _db;
+        public ProductDAL()
+        {
+            _db = new DatabaseContext();
+        }
+        public List<ThongTinDN> GetAllThongTinDN()
+        {
+            try
+            {
+                return _db.ThongTinDNs.ToList();
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
+        }
+        public ChinhSachBH GetAllChinhSachBH()
+        {
+            try
+            {
+                return _db.ChinhSachBHs.FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<MaintCenter> GetAllActiveCenter()
+        {
+            try
+            {
+                return _db.MaintCenters.Where(x => x.TrangThai == true).OrderBy(x => x.TinhThanh).ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<CauHoi> GetAllCauHoi()
+        {
+            try
+            {
+                return _db.CauHois.Where(x => x.TrangThai == true).ToList();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public ContactInfo GetContacInfo()
+        {
+            try
+            {
+                var data = _db.ContactInfos.Where(x => x.TrangThai == true).FirstOrDefault();
+                var datas = _db.ContactInfos.ToList();
+                if (data == null)
+                {
+                    if (datas.Count == 0)
+                    {
+                        ContactInfo cf = new ContactInfo()
+                        {
+                            DiaChi = "504 Phạm Ngũ Lão, Phường Hiệp Thành, Tp. Thủ Dầu Một, Bình Dương, Việt Nam.",
+                            DienThoai = "0918.166.675",
+                            FAX = "",
+                            Email = "chieutrucbd.mat@gmail.com",
+                            ChiNhanh = "Thôn Tây Chí, Xã Hồng Giang, Đông Hưng, Thái Bình",
+                            MatKhauEmail = Encryptor.MD5Hash("chieutrucbd@123"),
+                            NgayTao = DateTime.Now,
+                            TrangThai = true
+                        };
+                        _db.ContactInfos.Add(cf);
+                        _db.SaveChanges();
+                        data = _db.ContactInfos.Where(x => x.TrangThai == true).FirstOrDefault();
+                    }
+                    else
+                    {
+                        ContactInfo cf = new ContactInfo()
+                        {
+                            DiaChi = "504 Phạm Ngũ Lão, Phường Hiệp Thành, Tp. Thủ Dầu Một, Bình Dương, Việt Nam.",
+                            DienThoai = "0918.166.675",
+                            FAX = "",
+                            Email = "chieutrucbd.mat@gmail.com",
+                            ChiNhanh = "Thôn Tây Chí, Xã Hồng Giang, Đông Hưng, Thái Bình",
+                            MatKhauEmail = Encryptor.MD5Hash("chieutrucbd@123"),
+                            NgayTao = DateTime.Now,
+                            TrangThai = true
+                        };
+                        data = cf;
+                    }
+                }
+                return data ;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<SanPham> GetAllSanPhamByMetaTitle(string metaTitle)
+        {
+            try
+            {
+                var list = _db.SanPhams.Where(x => x.Deleted == false && x.TrangThai == true).OrderByDescending(x => x.NgayTao).OrderBy(x => x.IdSanPham).ToList();
+                if (!string.IsNullOrEmpty(metaTitle))
+                {
+                    list = list.Where(x => x.DMSanPham.MetaTitle.ToLower() == metaTitle.ToLower()).ToList();
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<Distributor> GetAllNPPByDanhMuc(string maDanhMuc)
+        {
+            try
+            {
+                var list = _db.Distributors.Where(x => x.TrangThai == true).OrderByDescending(x => x.NgayTao).OrderBy(x => x.IdDistributor).ToList();
+                if (!string.IsNullOrEmpty(maDanhMuc))
+                {
+                    list = list.Where(x => x.DanhMucHeThong.MaDanhMucHeThong.ToLower() == maDanhMuc.ToLower()).ToList();
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<SanPham> GetSanPhamCungDanhMuc(long? idSanPham, string maDanhMuc, int quantity = 5)
+        {
+            try
+            {
+                var list = _db.SanPhams.Where(x => x.Deleted == false && x.TrangThai == true && x.IdSanPham != idSanPham).OrderByDescending(x => x.NgayTao).OrderBy(x => x.IdSanPham).ToList();
+                if (!string.IsNullOrEmpty(maDanhMuc))
+                {
+                    list = list.Where(x => x.MaDanhMucSanPham == maDanhMuc).Take(quantity).ToList();
+                }
+                else
+                {
+                    list = list.Take(quantity).ToList();
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public ProductDetail GetDetailOfProduct(string metaTitle, long? idSanPham)
+        {
+            try
+            {
+                ProductDetail vm = new ProductDetail();
+                vm.SanPham = this.GetSanPhamByMetaTitleAndId(metaTitle, idSanPham);
+                vm.DMSanPham = new ProductCategoryDAL().GetOneDMSanPhamById2(vm.SanPham.MaDanhMucSanPham);
+                vm.SanPhamLienQuan = this.GetSanPhamCungDanhMuc(idSanPham, vm.SanPham.MaDanhMucSanPham);
+                vm.HinhAnhs = _db.HinhAnhSanPhams.Where(x => x.IdSanPham == idSanPham).ToList();
+                return vm;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public SanPham GetSanPhamByMetaTitleAndId(string metaTitle, long? idSanPham)
+        {
+            try
+            {
+                var sp = _db.SanPhams.FirstOrDefault(x => x.MetaTitle.ToLower() == metaTitle.ToLower() && x.IdSanPham == idSanPham && x.TrangThai == true);
+                return sp;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public bool ChangeStatus(long id)
+        {
+            var user = _db.SanPhams.SingleOrDefault(x => x.IdSanPham == id);
+            user.TrangThai = !user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusContacts(long id)
+        {
+            var user = _db.Contacts.SingleOrDefault(x => x.IdContact == id);
+            user.TrangThai = true;//!user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusCenter(long id)
+        {
+            var user = _db.MaintCenters.SingleOrDefault(x => x.IdMaintCenter == id);
+            user.TrangThai = !user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusQuestion(long id)
+        {
+            var user = _db.CauHois.SingleOrDefault(x => x.IdCauHoi == id);
+            user.TrangThai = !user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusQuyenLoi(long id)
+        {
+            var user = _db.QuyenLois.SingleOrDefault(x => x.IdQuyenLoi == id);
+            user.TrangThai = !user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusNPP(long id)
+        {
+            var user = _db.Distributors.SingleOrDefault(x => x.IdDistributor == id);
+            user.TrangThai = !user.TrangThai;
+            _db.SaveChanges();
+            return user.TrangThai;
+        }
+        public bool ChangeStatusDMHeThong(string id)
+        {
+            try
+            {
+                var user = _db.DanhMucHeThongs.SingleOrDefault(x => x.MaDanhMucHeThong == id);
+                user.TrangThai = !user.TrangThai;
+                _db.SaveChanges();
+
+                var list = _db.Distributors.Where(x => x.MaDanhMucHeThong == id).ToList();
+                if (list.Count > 0)
+                {
+                    foreach (var item in _db.Distributors.Where(x => x.MaDanhMucHeThong == id).ToList())
+                    {
+                        var i = _db.Distributors.FirstOrDefault(x => x.IdDistributor == item.IdDistributor);
+                        if (i.TrangThai != user.TrangThai)
+                        {
+                            item.TrangThai = user.TrangThai;
+                            _db.SaveChanges();
+                        }
+                    }
+                }
+                return user.TrangThai;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool ChangeStatusContactInfo(long id)
+        {
+            var user = _db.ContactInfos.SingleOrDefault(x => x.IdContactInfo == id);
+            var list = _db.ContactInfos.ToList();
+            if (list.Count > 1)
+            {
+                user.TrangThai = !user.TrangThai;
+                _db.SaveChanges();
+
+                if (user.TrangThai)
+                {
+                    foreach (var item in _db.ContactInfos.Where(x => x.IdContactInfo != id).ToList())
+                    {
+                        item.TrangThai = false;
+                        _db.SaveChanges();
+                    }
+                }
+                else
+                {
+                    var item = _db.ContactInfos.Where(x => x.IdContactInfo != id).FirstOrDefault();
+                    item.TrangThai = true;
+                    _db.SaveChanges();
+                }
+            }
+            return user.TrangThai;
+        }
+        public bool Add(AddSanPhamViewModel data)
+        {
+            try
+            {
+                data.SanPham.NgayTao = DateTime.Now;
+                data.SanPham.MetaTitle = StringHelper.ToUnsignString(data.SanPham.TenSanPham.ToLower());
+                data.SanPham.HinhAnh = data.HinhAnhs[0];
+                _db.SanPhams.Add(data.SanPham);
+                _db.SaveChanges();
+
+                foreach (var item in data.HinhAnhs)
+                {
+                    HinhAnhSanPham img = new HinhAnhSanPham()
+                    {
+                        IdSanPham = data.SanPham.IdSanPham,
+                        Url = item,
+                        TrangThai = true,
+                        Deleted = false
+                    };
+                    _db.HinhAnhSanPhams.Add(img);
+                    _db.SaveChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool ReplyContact(ReplyContactViewModel data)
+        {
+            try
+            {
+                new MailHelper().ReplyMail(data);//gửi mail về cho KH
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool AddContactInfo(ContactInfo data)
+        {
+            try
+            {
+                data.TrangThai = true;
+                if (_db.ContactInfos.Any(x => x.TrangThai == true))
+                    data.TrangThai = false;
+                data.NgayTao = DateTime.Now;
+                data.MatKhauEmail = Encryptor.MD5Hash(data.MatKhauEmail);
+                _db.ContactInfos.Add(data);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool UpdateContactInfo(ContactInfo data)
+        {
+            try
+            {
+                var item = _db.ContactInfos.FirstOrDefault(x => x.IdContactInfo == data.IdContactInfo);
+                if (!string.IsNullOrEmpty(data.MatKhauEmail) && Encryptor.MD5Hash(data.MatKhauEmail) != item.MatKhauEmail)
+                    item.MatKhauEmail = Encryptor.MD5Hash(data.MatKhauEmail);
+                item.Email = data.Email;
+                item.DiaChi = data.DiaChi;
+                item.ChiNhanh = data.ChiNhanh;
+                item.DienThoai = data.DienThoai;
+                item.FAX = data.FAX;
+                item.BanDo = data.BanDo;
+                //item.TrangThai = data.TrangThai;
+                data.NgaySua = DateTime.Now;
+                //_db.ContactInfos.Add(data);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool UpdateThongTinDN(ThongTinDN data)
+        {
+            try
+            {
+                var item = _db.ThongTinDNs.FirstOrDefault(x => x.IdThongTinDN == data.IdThongTinDN);
+                item.ChiTiet = data.ChiTiet;
+                item.NgaySua = DateTime.Now;
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool Update(AddSanPhamViewModel data)
+        {
+            try
+            {
+                var item = _db.SanPhams.FirstOrDefault(x => x.IdSanPham == data.SanPham.IdSanPham);
+                item.TenSanPham = data.SanPham.TenSanPham;
+                //item.MetaTitle = data.SanPham.MetaTitle;
+                item.MetaDescription = data.SanPham.MetaDescription;
+                item.MetaKeyword = data.SanPham.MetaKeyword;
+                item.MoTa = data.SanPham.MoTa;
+                item.Tags = data.SanPham.Tags;
+                item.GiaTien = data.SanPham.GiaTien;
+                item.SoLuong = data.SanPham.SoLuong;
+                item.MaDanhMucSanPham = data.SanPham.MaDanhMucSanPham;
+                item.TrangThai = data.SanPham.TrangThai;
+                item.NgaySua = DateTime.Now;
+                item.HinhAnh = data.HinhAnhs[0];
+                _db.SaveChanges();
+
+                var listImg = _db.HinhAnhSanPhams.Where(x => x.IdSanPham == item.IdSanPham).ToList();
+                //cách 1 (xoá hết rồi lưu lại)
+                if (listImg.Count > 0)
+                {
+                    _db.HinhAnhSanPhams.RemoveRange(listImg);
+                    _db.SaveChanges();
+                }
+                foreach(var i in data.HinhAnhs)
+                {
+                    HinhAnhSanPham img = new HinhAnhSanPham()
+                    {
+                        IdSanPham = data.SanPham.IdSanPham,
+                        Url = i,
+                        TrangThai = true,
+                        Deleted = false
+                    };
+                    _db.HinhAnhSanPhams.Add(img);
+                    _db.SaveChanges();
+                }
+
+                //cách 2
+                //foreach (var i in data.HinhAnhs.Where(p => !listImg.Any(p2 => p2.Url == p)))
+                //{
+                //    HinhAnhSanPham img = new HinhAnhSanPham()
+                //    {
+                //        IdSanPham = data.SanPham.IdSanPham,
+                //        Url = i,
+                //        TrangThai = true,
+                //        Deleted = false
+                //    };
+                //    _db.HinhAnhSanPhams.Add(img);
+                //    _db.SaveChanges();
+                //}
+                return true;
+            }
+            catch(Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool Delete(long id)
+        {
+            try
+            {
+                var item = _db.SanPhams.FirstOrDefault(x => x.IdSanPham == id);
+                if (item != null)
+                {
+                    _db.SanPhams.Remove(item);
+                    //item.Deleted = true;
+                    _db.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool DeleteContacts(long id)
+        {
+            try
+            {
+                var item = _db.Contacts.FirstOrDefault(x => x.IdContact == id);
+                if (item != null)
+                {
+                    _db.Contacts.Remove(item);
+                    _db.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public bool DeleteContactInfo(long id)
+        {
+            try
+            {
+                if (_db.ContactInfos.ToList().Count == 1)
+                    return false;
+                var item = _db.ContactInfos.FirstOrDefault(x => x.IdContactInfo == id);
+                if (item != null)
+                {
+                    _db.ContactInfos.Remove(item);
+                    _db.SaveChanges();
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+        public string GetOneSanPhamById(long id)
+        {
+            try
+            {
+                var item = _db.SanPhams.FirstOrDefault(x => x.IdSanPham == id);
+                dynamic obj = new ExpandoObject();
+                obj.IdSanPham = item.IdSanPham;
+                obj.MaSanPham = item.MaSanPham;
+                obj.TenSanPham = item.TenSanPham;
+                obj.MaDanhMucSanPham = item.MaDanhMucSanPham;
+                obj.TenDanhMucSanPham = item.DMSanPham != null ? item.DMSanPham.TenDanhMucSanPham : "";
+                obj.GiaTien = item.GiaTien;
+                obj.SoLuong = item.SoLuong;
+                obj.MoTa = item.MoTa;
+                obj.MetaKeyword = item.MetaKeyword;
+                obj.MetaDescription = item.MetaDescription;
+                obj.Tags = item.Tags;
+                obj.TrangThai = item.TrangThai;
+                obj.NgayTao = item.NgayTao.Value.ToString("dd/MM/yyyy");
+
+                //danh sách hình ảnh
+                List<dynamic> hinhAnhs = new List<dynamic>();
+                foreach (var i in _db.HinhAnhSanPhams.Where(x => x.IdSanPham == id).ToList())
+                {
+                    dynamic img = new ExpandoObject();
+                    img.Url = i.Url;
+                    hinhAnhs.Add(img);
+                }
+
+                dynamic output = new ExpandoObject();
+                output.SanPham = obj;
+                output.HinhAnh = hinhAnhs;
+
+                string jsonData = JsonConvert.SerializeObject(output, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+        public string GetChinhSachBH()
+        {
+            try
+            {
+                var item = _db.ChinhSachBHs.FirstOrDefault();
+                if (item == null)
+                {
+                    ChinhSachBH bh = new ChinhSachBH()
+                    {
+                        TrangThai = true,
+                        ChiTiet="Trống"
+                    };
+                    _db.ChinhSachBHs.Add(bh);
+                    _db.SaveChanges();
+
+                    item = _db.ChinhSachBHs.FirstOrDefault();
+                }
+                
+                dynamic obj = new ExpandoObject();
+                obj.IdChinhSachBH = item.IdChinhSachBH;
+                obj.ChiTiet = item.ChiTiet;
+                obj.TrangThai = item.TrangThai;
+                obj.NgayTao = item.NgayCapNhat != null ? item.NgayCapNhat.Value.ToString("dd/MM/yyyy") : "";
+
+                string jsonData = JsonConvert.SerializeObject(obj, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+        public string GetOneContactById(long id)
+        {
+            try
+            {
+                var item = _db.Contacts.FirstOrDefault(x => x.IdContact == id);
+                dynamic obj = new ExpandoObject();
+                obj.IdContact = item.IdContact;
+                obj.Email = item.Email;
+                obj.Name = item.Name;
+                obj.Subject = item.Phone;
+                obj.Message = item.Message;
+                obj.NgayGui = item.NgayGui.Value.ToString("dd/MM/yyyy");
+
+                string jsonData = JsonConvert.SerializeObject(obj, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+        public string GetOneDMHeThongById(string id)
+        {
+            try
+            {
+                var item = _db.DanhMucHeThongs.FirstOrDefault(x => x.MaDanhMucHeThong == id);
+                dynamic obj = new ExpandoObject();
+                obj.MaDanhMucHeThong = item.MaDanhMucHeThong;
+                obj.TenDanhMucHeThong = item.TenDanhMucHeThong;
+                obj.MoTa = item.MoTa;
+                obj.TrangThai = item.TrangThai;
+                obj.NgayTao = item.NgayTao.Value.ToString("dd/MM/yyyy");
+
+                string jsonData = JsonConvert.SerializeObject(obj, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+        public string GetOneCenterById(long id)
+        {
+            try
+            {
+                var item = _db.MaintCenters.FirstOrDefault(x => x.IdMaintCenter == id);
+                dynamic obj = new ExpandoObject();
+                obj.IdMaintCenter = item.IdMaintCenter;
+                obj.TinhThanh = item.TinhThanh;
+                obj.BanDo = item.BanDo;
+                obj.TrangThai = item.TrangThai;
+
+                string jsonData = JsonConvert.SerializeObject(obj, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+        public string GetOneContactInfoById(long id)
+        {
+            try
+            {
+                var item = _db.ContactInfos.FirstOrDefault(x => x.IdContactInfo == id);
+                dynamic obj = new ExpandoObject();
+                obj.IdContactInfo = item.IdContactInfo;
+                obj.Email = item.Email;
+                obj.DiaChi = item.DiaChi;
+                obj.ChiNhanh = item.ChiNhanh;
+                obj.DienThoai = item.DienThoai;
+                obj.FAX = item.FAX;
+                obj.BanDo = item.BanDo;
+                obj.TrangThai = item.TrangThai;
+                obj.NgayTao = item.NgayTao.Value.ToString("dd/MM/yyyy");
+
+                string jsonData = JsonConvert.SerializeObject(obj, new JsonSerializerSettings()
+                {
+                    PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+                    Formatting = Formatting.Indented
+                });
+                return jsonData;
+            }
+            catch (Exception ex)
+            {
+                return string.Empty;
+            }
+        }
+
+        public SanPham getProductById(int id)
+        {
+            var product = _db.SanPhams.FirstOrDefault(x => x.IdSanPham == id);
+            return product;
+        }
+
+    }
+}

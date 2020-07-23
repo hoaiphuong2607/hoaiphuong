@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ChieuTrucDB.Models.Product>
+@{
+    ViewBag.Title = "SpLienQ";
+    Layout = "";
+}
+<footer class="product-footer">
+    <h2 class="txt-upper txt-medium txt-oswald">Sản phẩm tương tự</h2>
+
+    <div class="container marketing">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4">
+                    <a href="/Home/Details/@item.id"><img class="img-circle" src="@item.thumbnail" alt="@item.thumbnail" style="width: 140px; height: 140px;"></a>
+                    <h2 style="font-size:14px">@item.name</h2>
+                    <p style="font-size:14px">@item.price 000VNĐ</p>
+                    <p><a class="btn btn-default" href="/Home/Details/@item.id" role="button">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
+            }
+        </div><!-- /.row -->
+    </div>
+</footer>

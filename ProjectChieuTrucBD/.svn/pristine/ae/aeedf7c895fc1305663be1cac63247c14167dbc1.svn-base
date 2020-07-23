@@ -1,0 +1,108 @@
+﻿@model ChieuTrucDB.Models.ContactInfo
+@{
+    ViewBag.Title = "Liên hệ chúng tôi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-head_agile_info_w3l">
+
+</div>
+<div class="services-breadcrumb">
+    <div class="agile_inner_breadcrumb">
+        <div class="container">
+            <ul class="w3_short">
+                <li>
+                    <a href="/">Trang chủ</a>
+                    <i>></i>
+                </li>
+                <li>@ViewBag.Title</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="ads-grid">
+    <div class="container">
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">
+            CHÚNG TÔI RẤT HÂN HẠNH ĐƯỢC HỖ TRỢ QUÝ KHÁCH
+            <span class="heading-style">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </h3>
+        <style>
+            .contact button {
+                outline: none;
+                color: #fff;
+                padding: 10px 42px;
+                font-size: 15px;
+                letter-spacing: 1px;
+                margin: 1em 0 0 0;
+                background: #FF5722;
+                border: 2px solid #FF5722;
+                transition: 0.5s all;
+            }
+        </style>
+        <div class="contact agileits">
+            <div class="contact-agileinfo">
+                <div class="contact-form wthree">
+                    <form id="contactForm" onsubmit="return false;">
+                        <div class="">
+                            <input type="text" name="name" id="Name" placeholder="Tên của bạn (*)" required="">
+                        </div>
+                        <div class="">
+                            <input class="text" type="text" id="Phone" name="subject" placeholder="Tiêu đề (*)">
+                        </div>
+                        <div class="">
+                            <input class="email" type="email" id="Email" name="email" placeholder="Địa chỉ email (*)" required="">
+                        </div>
+                        <div class="">
+                            <textarea id="Message" placeholder="Lời nhắn cho chúng tôi (*)" name="message" required=""></textarea>
+                        </div>
+                        <button class="button" onclick="sendNewContact();">Gửi</button>
+                    </form>
+                </div>
+                <div class="contact-right wthree">
+                    <div class="col-xs-7 contact-text w3-agileits">
+                        <h4>Để được hỗ trợ nhanh chóng từ chúng tôi:</h4>
+                        <p>
+                            <i class="fa fa-map-marker"></i> Văn phòng: @Model.DiaChi
+                        </p>
+                        @if (!string.IsNullOrEmpty(Model.ChiNhanh))
+                        {
+                            <p>
+                                <i class="fa fa-fax"></i> Cơ sở sản xuất: @Model.ChiNhanh
+                            </p>
+                        }
+                        <p>
+                            <i class="fa fa-phone"></i> Điện thoại: @Model.DienThoai
+                        </p>
+                        @if (!string.IsNullOrEmpty(Model.FAX))
+                        {
+                            <p>
+                                <i class="fa fa-fax"></i> FAX: @Model.FAX
+                            </p>
+                        }
+                        <p>
+                            <i class="fa fa-envelope-o"></i> Email:
+                            <a href="mailto:@Model.Email">@Model.Email</a>
+                        </p>
+                    </div>
+                    <div class="col-xs-5 contact-agile">
+                        <img src="~/Content/Template/images/contact2.jpg" alt="">
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@if (!string.IsNullOrEmpty(Model.BanDo))
+{
+    <div class="map w3layouts">
+        <iframe src="@Model.BanDo" allowfullscreen></iframe>
+    </div>
+}

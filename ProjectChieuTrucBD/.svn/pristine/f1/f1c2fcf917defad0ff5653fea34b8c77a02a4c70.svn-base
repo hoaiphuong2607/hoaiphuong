@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@ViewBag.Title - Chiếu trúc Bình Dương</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE" />
+    <meta HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE" />
+    <meta name="google-site-verification" content="dwt2fjv6-oAN5Tueo-u5zCAASZyjCoX1Ckv8xzE5j6k" />
+    <link rel="shortcut icon" href="~/Images/favio.ico" type="image/x-icon" />
+    <meta name="keywords" content="comet, điện gia dụng, thiết bị nhà bếp, máy sấy tóc, thiết bị làm mát, thiết bị chăm sóc sức khỏe, sản phẩm gia dụng, " />
+    <meta name="description" content="Công việc nội trợ trở nên dễ dàng hơn với các sản phẩm điện gia dụng Comet. Comet cung cấp các sản phẩm điện gia dụng đa dạng như: nồi cơm điện, bếp từ, bàn ủi…" />
+    <link href="~/Content/HomePage/css/Style.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/HomePage/css/thickbox.css" rel="stylesheet" type="text/css" />
+    <link href="~/Resources/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet" />
+    <link href="~/Content/Template/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/HomePage/css/base.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/Content/Template/css/flexslider.css" type="text/css" media="screen" />
+    <script src="~/Content/Template/js/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/Content/HomePage/js/thickbox.js"></script>
+    <script type="text/javascript" src="~/Content/HomePage/js/jquery-scrolltofixed-min.js"></script>
+    <script type="text/javascript" src="~/Content/HomePage/js/common.js"></script>
+    <script type="text/javascript" src="~/Resources/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/HomePage/js/easing.js"></script>
+
+    <!-- fonts -->
+    <link href="~/Content/Template/css/style.css" rel="stylesheet" />
+    @RenderSection("style", false)
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-50825533-1', 'cometgiadung.vn');
+        ga('send', 'pageview');
+
+
+    </script>
+</head>
+<body style="font-size:13px">
+    <!-- Google Tag Manager -->
+    <noscript>
+        <iframe src="//www.googletagmanager.com/ns.html?id=GTM-W5RXW4"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    '//www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-W5RXW4');
+    </script>
+    <!-- End Google Tag Manager -->
+    <!-- begin header-->
+    <div class="header">
+        <div class="head">
+            <div class="logo">
+                <a href="/"><img src="~/Images/logobig.png" alt="logo COMET" style="width:140px;height:73px;" /></a>
+            </div>
+            <div class="language">
+                <a href="javascript:void(0);" onclick="setLang('vi');" title="Việt Nam"><img alt="Việt Nam" src="~/Content/HomePage/Image/vi.png" /></a>
+                <a href="javascript:void(0);" onclick="setLang('en');" title="English"><img alt="English" src="~/Content/HomePage/Image/en.png" /></a>
+                @*<div class="search">
+                    <form name="search" method="get" action="/product/search">
+                        <input type="text" class="keyword" name="keyword-search" placeholder="Tìm kiếm" value="" />
+                        <input type="button" name="ok-search" onclick="actionSearch();" value="" />
+                    </form>
+                </div>*@
+                @Html.Partial("_Menu1partial")
+                <a href="/dang-nhap" title="Quản lý chiếu trúc Bình Dương"><img alt="Quản lý chiếu trúc Bình Dương" src="~/Content/HomePage/Image/admin.png" /></a>
+            </div>
+        </div>
+        <!-- begin mainmenu-->
+        @{ Html.RenderAction("Navigation", "Layout");}
+        <!-- end mainmenu-->
+    </div>
+    <!--end header--><!--begin wrapper-->
+    @RenderBody()
+
+    <!-- newsletter -->
+    @Html.Partial("newsletter")
+    <!-- //newsletter -->
+
+    @{ Html.RenderAction("Foot", "Layout");}
+    <footer class="blog-footer">
+        <div class="container">
+            <div class="row">
+                <b class="col-sm-6">© 2019 Copyright Chiếu Trúc Bình Dương. All right reserved.</b>
+                <b class="col-sm-6 text-right">Thiết kế bởi <a style="color: #9acd32;text-decoration: none;" href="http://www.pnssoftware.com" target="_blank"><span onclick="http://localhost:13444/trang-chu">Công ty phần mềm P&amp;S</span></a></b>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/navigationScript.js"></script>
+    <script src="~/Scripts/mainScript.js"></script>
+    <script>
+        GetSanPhamNavigation('#nav_sanpham');
+        GetHeThongNavigation('#nav_hethong');
+    </script>
+</body>
+</html>
